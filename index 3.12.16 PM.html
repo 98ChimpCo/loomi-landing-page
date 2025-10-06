@@ -6,7 +6,7 @@
     <title>Loomi - The Science of Calm & Confident Kids</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
-
+        
         * {
             margin: 0;
             padding: 0;
@@ -92,14 +92,14 @@
         /* Hero Splash with Logo */
         .hero-splash {
             width: 100%;
-            max-width: 400px;
-            margin: 0 auto 60px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
             text-align: center;
         }
 
         .hero-splash img {
             width: 100%;
-            max-width: 800px;
+            max-width: 560px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -251,7 +251,7 @@
 
         .galaxy-banner img {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -390,39 +390,6 @@
             font-size: 24px;
         }
 
-
-        /* Fade slideshow (contained, no cropping) - RESTORED FOR IMAGE CROSSFADE */
-        .fade-box {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            width: 100%;
-            max-width: 580px;
-            margin: 0 auto;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
-        }
-        .fade-img {
-            position: absolute;
-            inset: 40px;
-            width: calc(100% - 80px);
-            height: calc(100% - 80px);
-            object-fit: contain;
-            border-radius: 15px;
-            display: block;
-            opacity: 0;
-            /* RESTORED: Image cross-fade transition time */
-            transition: opacity 1200ms ease-in-out;
-            will-change: opacity;
-            z-index: 0;
-        }
-        .fade-img.show {
-            opacity: 1;
-            z-index: 1;
-        }
-
         /* Affirmations Section */
         .affirmations-section {
             padding: 100px 0;
@@ -462,19 +429,12 @@
             backdrop-filter: blur(10px);
         }
 
-        /* SMOOTH QUOTE TRANSITION - KEPT */
         .carousel-quote {
             font-size: 22px;
             font-style: italic;
             line-height: 1.7;
             color: #ffffff;
             margin-bottom: 30px;
-            transition: opacity 0.6s ease-in-out;
-        }
-
-        /* SMOOTH QUOTE TRANSITION - KEPT */
-        .carousel-quote.fading-out {
-            opacity: 0;
         }
 
         .carousel-dots {
@@ -863,7 +823,7 @@
         </header>
 
         <section class="hero-splash">
-            <img src="./assets/loomi-logo-header.png" alt="Loomi - Bear hugging crescent moon">
+            <img src="./loomi-logo-header.jpg" alt="Loomi - Bear hugging crescent moon">
         </section>
 
         <section class="hero">
@@ -928,13 +888,13 @@
         </section>
 
         <section class="galaxy-banner">
-            <img src="./assets/middle-banner.jpg" alt="Child looking at spiral galaxy in the night sky">
+            <img src="./middle-banner.jpg" alt="Child looking at spiral galaxy in the night sky">
         </section>
 
         <section class="stories-section">
             <div class="container">
                 <h2 class="section-title">More Than Words:<br>How Stories Shape the Brain</h2>
-
+                
                 <div class="stories-content">
                     <div class="stories-text">
                         <ul>
@@ -945,9 +905,8 @@
                         <p style="margin-top: 30px; font-size: 16px; color: #6b7280; font-style: italic;">Modules: Routine builder · Nightly playlist · Adaptive narration</p>
                     </div>
 
-                    <div class="fade-box">
-                        <img id="fadeA" class="fade-img show" src="./assets/parent-reading-moon.jpg" alt="Parent and child listening under a crescent moon">
-                        <img id="fadeB" class="fade-img" src="./assets/parent-reading-moon-2.jpg" alt="Parent and child listening under a crescent moon">
+                    <div style="padding: 40px; background: rgba(255, 255, 255, 0.02); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <img src="./parent-reading-moon.jpg" alt="Parent reading to child under crescent moon" style="width: 100%; max-width: 500px; height: auto; display: block; margin: 0 auto; border-radius: 15px;">
                     </div>
                 </div>
             </div>
@@ -955,7 +914,7 @@
 
         <section class="affirmations-section">
             <h2 class="section-title">Building Inner Strength,<br>One Affirmation at a Time</h2>
-
+            
             <p style="font-size: 18px; color: #a5b4fc; margin-top: 20px;">Method: short, loving, present-tense phrases.</p>
 
             <div class="affirmations-process">
@@ -992,7 +951,7 @@
                         </h3>
                         <p class="superpower-description">Children's brains process and store information during sleep, turning daily experiences into long-term learning and development.</p>
                     </div>
-
+                    
                     <div class="superpower-card">
                         <h3 class="superpower-title">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f4a460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -1000,7 +959,7 @@
                         </h3>
                         <p class="superpower-description">Calming audio narratives activate the nervous system's relaxation response, reducing stress hormones and promoting better sleep.</p>
                     </div>
-
+                    
                     <div class="superpower-card">
                         <h3 class="superpower-title">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f4a460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 8px;"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
@@ -1087,6 +1046,7 @@
         </footer>
     </div>
 
+    <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -1123,32 +1083,21 @@
             starfield.appendChild(star);
         }
 
-        /* --- Affirmations Carousel Logic (with Smooth Fade) --- */
+        // Carousel functionality
         const quotes = [
             "I am safe, loved, and growing strong.",
             "I can breathe, relax, and fall asleep.",
             "I am brave, kind, and learning every day."
         ];
         let currentQuote = 0;
-        const quoteElement = document.getElementById('carouselQuote');
-        const transitionDuration = 600; // 0.6s fade-out/fade-in
 
         function changeQuote(index) {
             currentQuote = index;
-
-            // 1. Start the fade-out
-            quoteElement.classList.add('fading-out');
-
-            // 2. Wait for the fade-out to complete, then change the text and fade back in
-            setTimeout(() => {
-                quoteElement.textContent = quotes[currentQuote];
-                quoteElement.classList.remove('fading-out');
-
-                // Update the dots right after the text is changed
-                document.querySelectorAll('.dot').forEach((dot, i) => {
-                    dot.classList.toggle('active', i === currentQuote);
-                });
-            }, transitionDuration);
+            document.getElementById('carouselQuote').textContent = quotes[currentQuote];
+            
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentQuote);
+            });
         }
 
         // Auto-rotate carousel
@@ -1157,31 +1106,7 @@
             changeQuote(currentQuote);
         }, 4000);
 
-        /* --- Image Cross-Fade Logic (Restored) --- */
-        window.addEventListener('load', function() {
-            const a = document.getElementById('fadeA');
-            const b = document.getElementById('fadeB');
-            if (!a || !b) return;
-
-            let showingA = true;
-
-            function swap() {
-                if (showingA) {
-                    // Switch to B
-                    b.classList.add('show');
-                    a.classList.remove('show');
-                } else {
-                    // Switch to A
-                    a.classList.add('show');
-                    b.classList.remove('show');
-                }
-                showingA = !showingA;
-            }
-            // Starts the image cross-fade cycle every 4 seconds (4000ms)
-            setInterval(swap, 4000);
-        });
-
-        /* --- General Functions --- */
+        // Modal functions
         function openModal() {
             document.getElementById('modal').classList.add('active');
         }
