@@ -897,6 +897,17 @@
             color: rgba(255, 255, 255, 0.3);
         }
 
+        /* Honeypot field - hidden from humans, visible to bots */
+        .honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            pointer-events: none;
+            tab-index: -1;
+        }
+
         .submit-btn {
             width: 100%;
             padding: 18px;
@@ -1073,7 +1084,7 @@
                   <div class="story-text">
                       <p>Once there was a little fox named Mira who lived at the bottom of a tall mountain. Every day, she watched the eagles soar high above the peak and wondered what the view looked like from up there.</p>
 
-                      <p>One morning, Mira woke up and thought, <span class="affirmation">"I want to try something new today. I want to climb that mountain."</span> <span class="affirmation">Even though she'd never done it before, something inside her said she could.</span></p>
+                      <p>One morning, Mira woke up and thought, <span class="affirmation">"I want to try something new today. I want to climb that mountain. Even though she'd never done it before, something inside her said she could.</span></p>
 
                       <p>She started up the winding path, her little legs working hard with each step. <span class="affirmation">"I'm stronger than I thought," Mira realized as she climbed higher and higher.</span></p>
 
@@ -1350,24 +1361,27 @@
             <p style="color: #a5b4fc; margin-bottom: 20px;">Be among the first families to experience Loomi.</p>
 
             <form onsubmit="handleSubmit(event)">
+                <!-- Honeypot field - bots will fill this, humans won't see it -->
+                <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+
                 <div class="form-group">
                     <label>Parent's Name</label>
-                    <input type="text" placeholder="Your name" required>
+                    <input type="text" name="parent_name" placeholder="Your name" required>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" placeholder="your@email.com" required>
+                    <input type="email" name="email" placeholder="your@email.com" required>
                 </div>
 
                 <div class="form-group">
                     <label>Child's Age</label>
-                    <input type="text" placeholder="e.g., 2 years old">
+                    <input type="text" name="child_age" placeholder="e.g., 2 years old">
                 </div>
 
                 <div class="form-group">
                     <label>Preferred Languages</label>
-                    <input type="text" placeholder="e.g., English, Persian">
+                    <input type="text" name="languages" placeholder="e.g., English, Persian">
                 </div>
 
                 <button type="submit" class="submit-btn">Join the Waitlist</button>
@@ -1399,6 +1413,17 @@
 
         function handleSubmit(event) {
             event.preventDefault();
+
+            // Honeypot check - if filled, it's a bot
+            const honeypot = event.target.querySelector('[name="website"]');
+            if (honeypot && honeypot.value !== '') {
+                // Silently reject bot submission
+                console.log('Bot detected - submission rejected');
+                closeModal();
+                return false;
+            }
+
+            // Real human submission - process normally
             alert('Thank you for joining! We\'ll be in touch soon.');
             closeModal();
         }
