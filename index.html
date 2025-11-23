@@ -177,25 +177,6 @@
             box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
         }
 
-        .btn-secondary {
-            padding: 18px 40px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 35px;
-            color: white;
-            font-size: 18px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            font-family: 'Fredoka', sans-serif;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-3px);
-        }
-
         /* Story Comparison Section */
         .story-comparison-section {
             max-width: 1200px;
@@ -231,11 +212,11 @@
         }
 
         .story-column {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 32px;
-            backdrop-filter: blur(10px);
+            /* backdrop-filter: blur(10px); */
         }
 
         .story-column h3 {
@@ -293,78 +274,6 @@
             padding: 2px 6px;
             border-radius: 4px;
             display: inline;
-        }
-
-        .benefit-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .benefit-card {
-            background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 16px;
-            padding: 32px;
-            text-align: center;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(244, 164, 96, 0.5);
-        }
-
-        .benefit-icon {
-            width: 64px;
-            height: 64px;
-            background: #1e293b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border: 2px solid rgba(148, 163, 184, 0.3);
-        }
-
-        .benefit-icon svg {
-            width: 32px;
-            height: 32px;
-            stroke: #f4a460;
-        }
-
-        .benefit-card h4 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #f4a460;
-        }
-
-        .benefit-card p {
-            font-size: 16px;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-
-        .loomi-difference {
-            background: rgba(30, 41, 59, 0.6);
-            border-left: 4px solid #f4a460;
-            border-radius: 12px;
-            padding: 32px;
-            margin-top: 40px;
-            backdrop-filter: blur(10px);
-        }
-
-        .loomi-difference p {
-            font-size: 20px;
-            line-height: 1.7;
-            color: #e2e8f0;
-        }
-
-        .loomi-difference strong {
-            color: #f4a460;
-            font-weight: 600;
         }
 
         /* Icon styles */
@@ -510,151 +419,12 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
-        /* Stories Section */
-        .stories-section {
-            padding: 100px 0;
-            background: rgba(102, 126, 234, 0.03);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .stories-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 60px;
-        }
-
-        .stories-text {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #a5b4fc;
-        }
-
-        .stories-text ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 30px;
-        }
-
-        .stories-text li {
-            margin-bottom: 20px;
-            padding-left: 35px;
-            position: relative;
-            font-size: 18px;
-        }
-
-        .stories-text li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #f4a460;
-            font-weight: 600;
-            font-size: 20px;
-        }
-
-        .fade-box {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            height: 500px;
-            margin: 0 auto;
-        }
-
-        .fade-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .fade-img.show {
-            opacity: 1;
-        }
-
-        /* Affirmations Section */
-        .affirmations-section {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .affirmations-process {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin: 60px 0;
-            flex-wrap: wrap;
-        }
-
-        .process-step {
-            padding: 20px 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(167, 139, 250, 0.3);
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: 500;
-            color: #ffffff;
-        }
-
-        .process-arrow {
-            font-size: 30px;
-            color: #a78bfa;
-        }
-
-        .carousel {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 60px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 25px;
-            position: relative;
-            min-height: 200px;
-        }
-
-        .carousel-quote {
-            font-size: 28px;
-            font-style: italic;
-            line-height: 1.6;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 0px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background: #f4a460;
-            width: 40px;
-            border-radius: 10px;
-        }
-
         /* Superpower Section */
         .superpower-section {
             padding: 20px 0;
-            background: rgba(102, 126, 234, 0.03);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(102, 126, 234, 0.0); /* turning it clear by setting alpha to 0.0 from 0.03 */
+            border-top: 1px solid rgba(255, 255, 255, 0.0); /* turning it clear by setting alpha to 0.0 from 0.05 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.0); /* turning it clear by setting alpha to 0.0 from 0.05 */
         }
 
         .superpower-grid {
@@ -662,7 +432,7 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-top: 60px;
-            padding: 0 20px;  /* Add horizontal padding */
+            padding: 0 20px;
         }
 
         .superpower-card {
@@ -690,109 +460,6 @@
             color: #a5b4fc;
         }
 
-        /* Protocol Section */
-        .protocol-section {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .protocol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .protocol-card {
-            padding: 50px 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-
-        .protocol-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(167, 139, 250, 0.4);
-        }
-
-        .protocol-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #8b5cf6 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 30px;
-            font-size: 36px;
-            font-weight: 600;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .protocol-title {
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: #ffffff;
-        }
-
-        .protocol-description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #a5b4fc;
-        }
-
-        /* Research Section */
-        .research-section {
-            padding: 100px 0;
-            background: rgba(102, 126, 234, 0.03);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
-
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .research-card {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            text-align: left;
-        }
-
-        .research-card .icon {
-            width: 70px;
-            height: 70px;
-        }
-
-        .research-title {
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .research-description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: #a5b4fc;
-        }
-
-        .research-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
         /* CTA Section */
         .final-cta {
             padding: 120px 0;
@@ -801,10 +468,9 @@
 
         .cta-box {
             padding: 80px 60px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.12) 0%, rgba(139, 92, 246, 0.12) 100%);
-            border: 1px solid rgba(167, 139, 250, 0.2);
+            background: rgba(102, 126, 234, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 30px;
-            backdrop-filter: blur(20px);
         }
 
         .cta-title {
@@ -941,9 +607,9 @@
 
         .research-carousel-section {
             padding: 20px 0;
-            background: rgba(102, 126, 234, 0.03);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(102, 126, 234, 0.0); /* turning it clear by setting alpha to 0.0 from 0.03 */
+            border-top: 1px solid rgba(255, 255, 255, 0.0); /* turning it clear by setting alpha to 0.0 from 0.05 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.0); /* turning it clear by setting alpha to 0.0 from 0.05 */
             margin-bottom: 80px;
         }
 
@@ -992,7 +658,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-self: stretch;  /* Add this */
+            align-self: stretch;
             box-sizing: border-box;
         }
 
@@ -1071,23 +737,9 @@
             }
 
             /* Grid Layouts */
-            .pillars-grid, .superpower-grid, .protocol-grid, .research-grid {
+            .pillars-grid, .superpower-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
-            }
-
-            .stories-content {
-                grid-template-columns: 1fr;
-            }
-
-            /* Affirmations Process */
-            .affirmations-process {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .process-arrow {
-                transform: rotate(90deg);
             }
 
             /* CTA Section */
@@ -1124,21 +776,6 @@
 
             .story-text {
                 font-size: 16px;
-            }
-
-            /* Benefit Cards */
-            .benefit-cards {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            /* Loomi Difference */
-            .loomi-difference {
-                padding: 24px;
-            }
-
-            .loomi-difference p {
-                font-size: 18px;
             }
 
             /* Research Carousel */
@@ -1565,10 +1202,6 @@
             closeModal();
         }
 
-        function scrollToProtocol() {
-            document.getElementById('protocol').scrollIntoView({ behavior: 'smooth' });
-        }
-
         // Close modal on outside click
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
@@ -1576,46 +1209,6 @@
                 closeModal();
             }
         }
-
-        // Carousel for affirmations
-        const quotes = [
-            "I am safe, loved, and growing strong.",
-            "I can breathe, relax, and fall asleep.",
-            "I am brave. I can do hard things."
-        ];
-        let currentQuote = 0;
-
-        function changeQuote(index) {
-            currentQuote = index;
-            document.getElementById('carouselQuote').textContent = quotes[currentQuote];
-
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentQuote);
-            });
-        }
-
-        // Auto-rotate carousel
-        setInterval(() => {
-            currentQuote = (currentQuote + 1) % quotes.length;
-            changeQuote(currentQuote);
-        }, 4000);
-
-        // Image cross-fade
-        let fadeState = true;
-        setInterval(() => {
-            const imgA = document.getElementById('fadeA');
-            const imgB = document.getElementById('fadeB');
-
-            if (fadeState) {
-                imgA.classList.remove('show');
-                imgB.classList.add('show');
-            } else {
-                imgB.classList.remove('show');
-                imgA.classList.add('show');
-            }
-            fadeState = !fadeState;
-        }, 5000);
 
         // Research Carousel
         let slideIndex = 0;
