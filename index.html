@@ -131,6 +131,29 @@
             stroke: #f4a460;
         }
 
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-top: 30px;
+            margin-bottom: 50px;  /* Add space before CTA button */
+            font-size: 24px;  /* Larger text */
+            color: #a5b4fc;
+        }
+
+        .badge {
+            white-space: nowrap;
+            font-size: 24px;  /* Match parent */
+        }
+
+        .badge-separator {
+            color: #f4a460;
+            font-size: 24px;  /* Larger bullets */
+            font-weight: 600;
+        }
+
         .hero-title {
             font-size: 64px;
             font-weight: 600;
@@ -143,7 +166,7 @@
         }
 
         .hero-subtitle {
-            font-size: 22px;
+            font-size: 24px;
             line-height: 1.6;
             color: #a5b4fc;
             max-width: 800px;
@@ -216,7 +239,6 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 32px;
-            /* backdrop-filter: blur(10px); */
         }
 
         .story-column h3 {
@@ -254,17 +276,26 @@
             stroke: #f4a460;
         }
 
+        .story-text p {
+            margin-bottom: 20px;
+        }
+
+        /* ONLY comparison items with emojis get grid layout */
+        .story-text p:has(.emoji) {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
         .story-text .emoji {
-            margin-right: 12px;
-            display: inline-block;
+            display: block;
+            font-size: 20px;
+            line-height: 1.6;
         }
 
         .story-column.regular .story-text {
             color: #94a3b8;
-        }
-
-        .story-text p {
-            margin-bottom: 20px;
         }
 
         .affirmation {
@@ -700,10 +731,13 @@
         }
 
         .slide-dots {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             justify-content: center;
             gap: 12px;
-            margin-top: 50px;
         }
 
         .slide-dot {
@@ -731,6 +765,27 @@
             .hero-subtitle {
                 font-size: 18px;
             }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 40px;
+                font-size: 16px;
+            }
+
+            .badge {
+                font-size: 24px;
+            }
+
+            .badge-separator {
+                display: none;
+            }
+
+            /* ... rest of your mobile styles continue ... */
 
             .section-title {
                 font-size: 36px;
@@ -789,11 +844,17 @@
             }
 
             .slide-card {
-                padding: 40px 30px;
+                padding: 35px 25px;  /* Reduced padding slightly */
             }
 
             .slide-card h3 {
                 font-size: 24px;
+                margin-bottom: 18px;  /* Reduced from 20px */
+            }
+
+            .slide-card p {
+                font-size: 16px;  /* Slightly smaller on mobile */
+                line-height: 1.6;  /* Tighter line height */
             }
         }
 
@@ -822,7 +883,14 @@
             </div>
 
             <h1 class="hero-title">Science-backed bedtime stories woven with positive affirmations for children aged 0-6.</h1>
-            <p class="hero-subtitle">Crafted by parents <span style="color: #f4a460;">|</span> Rooted in neuroscience <span style="color: #f4a460;">|</span> Loved at bedtime</p>
+
+            <div class="hero-badges">
+                <span class="badge">Crafted by parents</span>
+                <span class="badge-separator">|</span>
+                <span class="badge">Rooted in neuroscience</span>
+                <span class="badge-separator">|</span>
+                <span class="badge">Loved at bedtime</span>
+            </div>
 
             <div class="hero-cta">
                 <button class="btn-primary" onclick="openModal()">Join Early Access</button>
