@@ -204,7 +204,7 @@
         .story-comparison-section {
             max-width: 1200px;
             margin: 0 auto 100px;
-            padding: 0 20px;
+            padding: 0 0px;
         }
 
         .comparison-header {
@@ -276,26 +276,17 @@
             stroke: #f4a460;
         }
 
-        .story-text p {
-            margin-bottom: 20px;
-        }
-
-        /* ONLY comparison items with emojis get grid layout */
-        .story-text p:has(.emoji) {
-            display: grid;
-            grid-template-columns: 24px 1fr;
-            gap: 12px;
-            align-items: start;
-        }
-
         .story-text .emoji {
-            display: block;
-            font-size: 20px;
-            line-height: 1.6;
+            margin-right: 12px;
+            display: inline-block;
         }
 
         .story-column.regular .story-text {
             color: #94a3b8;
+        }
+
+        .story-text p {
+            margin-bottom: 20px;
         }
 
         .affirmation {
@@ -330,7 +321,7 @@
         }
 
         /* Three Pillars Section - RESTORED FROM OLD VERSION */
-        .pillars-section {
+        .formula-section {
             padding: 100px 0;
             text-align: center;
         }
@@ -346,7 +337,7 @@
             text-align: center;
         }
 
-        .pillars-grid {
+        .formula-grid {
             display: grid;
             grid-template-columns: 1fr auto 1fr auto 1fr;
             gap: 20px;
@@ -354,7 +345,7 @@
             align-items: center;
         }
 
-        .pillar-symbol {
+        .formula-symbol {
             font-size: 60px;
             font-weight: 600;
             color: #f4a460;
@@ -362,7 +353,7 @@
             opacity: 0.8;
         }
 
-        .pillar-card {
+        .formula-card {
             padding: 50px 40px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -372,7 +363,7 @@
             overflow: hidden;
         }
 
-        .pillar-card::before {
+        .formula-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -384,17 +375,17 @@
             transition: opacity 0.4s ease;
         }
 
-        .pillar-card:hover::before {
+        .formula-card:hover::before {
             opacity: 1;
         }
 
-        .pillar-card:hover {
+        .formula-card:hover {
             transform: translateY(-10px);
             border-color: rgba(167, 139, 250, 0.4);
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
         }
 
-        .pillar-title {
+        .formula-title {
             font-size: 28px;
             margin-bottom: 20px;
             color: #ffffff;
@@ -402,7 +393,7 @@
             z-index: 1;
         }
 
-        .pillar-description {
+        .formula-description {
             font-size: 16px;
             line-height: 1.8;
             color: #a5b4fc;
@@ -410,20 +401,20 @@
             z-index: 1;
         }
 
-        .pillar-description ul {
+        .formula-description ul {
             text-align: left;
             margin-top: 15px;
             list-style: none;
             padding: 0;
         }
 
-        .pillar-description li {
+        .formula-description li {
             margin-bottom: 10px;
-            padding-left: 25px;
+            padding-left: 18px;
             position: relative;
         }
 
-        .pillar-description li::before {
+        .formula-description li::before {
             content: '•';
             position: absolute;
             left: 0;
@@ -436,13 +427,13 @@
         /* Galaxy Banner Section */
         .galaxy-banner {
             width: 100%;
-            padding: 80px 0;
+            padding: 40px 0;
             text-align: center;
         }
 
         .galaxy-banner img {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -463,7 +454,7 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-top: 60px;
-            padding: 0 20px;
+            padding: 0 0px;
         }
 
         .superpower-card {
@@ -648,7 +639,7 @@
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
-            padding: 40px 20px 40px;
+            padding: 40px 0px 40px;
         }
 
         .research-slides {
@@ -731,13 +722,10 @@
         }
 
         .slide-dots {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
             justify-content: center;
             gap: 12px;
+            margin-top: 50px;
         }
 
         .slide-dot {
@@ -792,7 +780,7 @@
             }
 
             /* Grid Layouts */
-            .pillars-grid, .superpower-grid {
+            .formula-grid, .superpower-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
@@ -844,17 +832,11 @@
             }
 
             .slide-card {
-                padding: 35px 25px;  /* Reduced padding slightly */
+                padding: 40px 30px;
             }
 
             .slide-card h3 {
                 font-size: 24px;
-                margin-bottom: 18px;  /* Reduced from 20px */
-            }
-
-            .slide-card p {
-                font-size: 16px;  /* Slightly smaller on mobile */
-                line-height: 1.6;  /* Tighter line height */
             }
         }
 
@@ -882,7 +864,7 @@
                 Neuroscience Meets Parenting
             </div>
 
-            <h1 class="hero-title">Science-backed bedtime stories woven with positive affirmations for children aged 0-6.</h1>
+            <h1 class="hero-title"></h1>
 
             <div class="hero-badges">
                 <span class="badge">Crafted by parents</span>
@@ -904,7 +886,7 @@
         <section class="story-comparison-section">
 
             <div class="comparison-header">
-                <h2>Stories That Build Confidence While They Lull to Sleep</h2>
+                <h2></h2>
                 <p>Loomi transforms traditional bedtime stories into powerful tools for building self-esteem. By weaving positive affirmations naturally into engaging narratives, children absorb confidence-building messages while drifting off to sleep. See how the same story becomes a vehicle for emotional growth with our unique affirmation infusion technology.</p>
             </div>
 
@@ -1005,16 +987,16 @@
         </section>
 
         <!-- Three Pillars Section -->
-        <section class="pillars-section">
-            <h2 class="section-title">The Loomi Formula</h2>
+        <section class="formula-section">
+            <h2 class="section-title"></h2>
 
-            <div class="pillars-grid">
-                <div class="pillar-card">
+            <div class="formula-grid">
+                <div class="formula-card">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#f4a460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
                     </div>
-                    <h3 class="pillar-title">Storytelling</h3>
-                    <div class="pillar-description">
+                    <h3 class="formula-title">Storytelling</h3>
+                    <div class="formula-description">
                         <ul>
                             <li>Builds language & imagination</li>
                             <li>Creates bonding rituals</li>
@@ -1023,14 +1005,14 @@
                     </div>
                 </div>
 
-                <div class="pillar-symbol">+</div>
+                <div class="formula-symbol">+</div>
 
-                <div class="pillar-card">
+                <div class="formula-card">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#f4a460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                     </div>
-                    <h3 class="pillar-title">Affirmations</h3>
-                    <div class="pillar-description">
+                    <h3 class="formula-title">Affirmations</h3>
+                    <div class="formula-description">
                         <ul>
                             <li>Grows confidence, eases anxiety</li>
                             <li>Shapes identity with repetition</li>
@@ -1039,14 +1021,14 @@
                     </div>
                 </div>
 
-                <div class="pillar-symbol">=</div>
+                <div class="formula-symbol">=</div>
 
-                <div class="pillar-card">
+                <div class="formula-card">
                     <div class="icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 24 24" fill="none" stroke="#f4a460" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
                     </div>
-                    <h3 class="pillar-title">Deep Sleep</h3>
-                    <div class="pillar-description">
+                    <h3 class="formula-title">Deep Sleep</h3>
+                    <div class="formula-description">
                         <ul>
                             <li>Physical growth & immunity</li>
                             <li>Cognitive development</li>
@@ -1058,7 +1040,7 @@
         </section>
 
         <section class="research-carousel-section">
-            <h2 class="section-title">Grounded in Research</h2>
+            <h2 class="section-title"></h2>
 
             <div class="research-carousel-wrapper">
                 <!-- All slides in one container -->
@@ -1132,7 +1114,7 @@
 
         <!-- Superpower Section -->
         <section class="superpower-section">
-            <h2 class="section-title">Why Bedtime is a Superpower</h2>
+            <h2 class="section-title"></h2>
 
             <div class="superpower-grid">
                 <!-- Card 1: Growth/Plant Icon -->
@@ -1183,7 +1165,7 @@
         <!-- Final CTA -->
         <section class="final-cta">
             <div class="cta-box">
-                <h2 class="cta-title">Ready to Try Loomi?</h2>
+                <h2 class="cta-title"></h2>
                 <button class="btn-primary" onclick="openModal()">Join Early Access Today</button>
             </div>
         </section>
@@ -1232,6 +1214,550 @@
     </div>
 
     <script>
+        /* ================================================================
+           LOOMI LANDING PAGE - CONTENT MANAGEMENT SYSTEM
+           All text content centralized for easy editing and maintenance
+           Edit content in the CONTENT object below
+           ================================================================ */
+
+
+        const LANGUAGES = {
+            en: {
+                // Hero Section
+                hero: {
+                    title: "Science-backed bedtime stories woven with positive affirmations for children aged 0-6.",
+                    badges: [
+                        "Crafted by parents",
+                        "Rooted in neuroscience",
+                        "Loved at bedtime"
+                    ],
+                    ctaButton: "Join Early Access"
+                },
+
+                // Story Comparison Section
+                comparison: {
+                    title: "Stories That Build Confidence While They Lull to Sleep",
+                    description: "Loomi transforms traditional bedtime stories into powerful tools for building self-esteem. By weaving positive affirmations naturally into engaging narratives, children absorb confidence-building messages while drifting off to sleep. See how the same story becomes a vehicle for emotional growth with our unique affirmation infusion technology.",
+
+                    otherApps: {
+                        title: "Other Apps",
+                        items: [
+                            "just another story app",
+                            "high stimulation screen time",
+                            "stories that entertain",
+                            "soothing sounds"
+                        ]
+                    },
+
+                    loomiApp: {
+                        title: "Loomi App",
+                        items: [
+                            "a developmental tool for confidence & curiosity",
+                            "low stimulation rest and imagination time",
+                            "stories that cultivate character",
+                            "science-backed affirmations to build cognitive strength"
+                        ]
+                    }
+                },
+
+                // The Loomi Formula Section
+                formula: {
+                    title: "The Loomi Formula",
+                    pillars: [
+                        {
+                            title: "Storytelling",
+                            bullets: [
+                                "Builds language & imagination",
+                                "Creates bonding rituals",
+                                "Sparks creativity and wonder"
+                            ]
+                        },
+                        {
+                            title: "Affirmations",
+                            bullets: [
+                                "Grows confidence, eases anxiety",
+                                "Shapes identity with repetition",
+                                "Builds resilience & self-esteem"
+                            ]
+                        },
+                        {
+                            title: "Deep Sleep",
+                            bullets: [
+                                "Supports growth & immunity",
+                                "Enhances cognitive development",
+                                "Builds emotional resilience"
+                            ]
+                        }
+                    ]
+                },
+
+                // Research Carousel Section
+                research: {
+                    title: "Grounded in Research",
+                    slides: [
+                        {
+                            title: "Neuroscience",
+                            description: "Auditory familiarity & safety: calming audio narratives activate the brain's relaxation systems and help reduce the child's stress response"
+                        },
+                        {
+                            title: "Developmental Psychology",
+                            description: "Attachment & self-talk: positive parent-child interactions shape neural pathways that support emotional regulation and build inner resilience"
+                        },
+                        {
+                            title: "Sleep Science",
+                            description: "Routines, circadian cues, deep sleep: consistent bedtime rituals strengthen natural sleep-wake cycles and support healthy child development"
+                        }
+                    ]
+                },
+
+                // Why Bedtime is a Superpower Section
+                superpower: {
+                    title: "Why Bedtime is a Superpower",
+                    cards: [
+                        {
+                            title: "Deep sleep supports growth & memory consolidation",
+                            description: "Children's brains process and store information during sleep, turning daily experiences into long-term learning and development"
+                        },
+                        {
+                            title: "Consistent routines signal safety and calm",
+                            description: "Calming audio narratives activate the nervous system's relaxation response, reducing stress hormones and promoting better sleep"
+                        },
+                        {
+                            title: "Rituals create predictability, trust, and easier nights",
+                            description: "Consistent bedtime routines establish circadian cues, helping children feel secure and making sleep transitions smoother over time"
+                        }
+                    ]
+                },
+
+                // Final CTA Section
+                cta: {
+                    title: "Ready to Try Loomi?",
+                    button: "Join Early Access"
+                },
+
+                // Footer
+                footer: {
+                    tagline: "✨ Loomi - The science of calm & confident kids",
+                    copyright: "© 2025 Loomi. Built with ❤️ by 3 brothers and dads for parents seeking peaceful bedtimes."
+                },
+
+                // Modal
+                modal: {
+                    title: "Join Early Access"
+                }
+            },
+
+            es: {
+                hero: {
+                    title: "Cuentos para dormir respaldados por la ciencia, tejidos con afirmaciones positivas para niños de 0 a 6 años.",
+                    badges: [
+                        "Creado por padres",
+                        "Basado en neurociencia",
+                        "Amado a la hora de dormir"
+                    ],
+                    ctaButton: "Únete al Acceso Anticipado"
+                },
+                comparison: {
+                    title: "Cuentos Que Construyen Confianza Mientras Arrullan al Sueño",
+                    description: "Loomi transforma los cuentos tradicionales para dormir en herramientas poderosas para construir la autoestima. Al tejer afirmaciones positivas naturalmente en narrativas atractivas, los niños absorben mensajes que construyen confianza mientras se quedan dormidos. Vea cómo el mismo cuento se convierte en un vehículo para el crecimiento emocional con nuestra tecnología única de infusión de afirmaciones.",
+                    otherApps: {
+                        title: "Otras Aplicaciones",
+                        items: [
+                            "solo otra aplicación de cuentos",
+                            "tiempo de pantalla de alta estimulación",
+                            "cuentos que entretienen",
+                            "sonidos relajantes"
+                        ]
+                    },
+                    loomiApp: {
+                        title: "Aplicación Loomi",
+                        items: [
+                            "una herramienta de desarrollo para la confianza y curiosidad",
+                            "tiempo de descanso e imaginación de baja estimulación",
+                            "cuentos que cultivan el carácter",
+                            "afirmaciones respaldadas por la ciencia para construir fortaleza cognitiva"
+                        ]
+                    }
+                },
+                formula: {
+                    title: "La Fórmula Loomi",
+                    pillars: [
+                        {
+                            title: "Narración de Cuentos",
+                            bullets: [
+                                "Construye lenguaje e imaginación",
+                                "Crea rituales de conexión",
+                                "Despierta creatividad y asombro"
+                            ]
+                        },
+                        {
+                            title: "Afirmaciones",
+                            bullets: [
+                                "Aumenta la confianza, reduce la ansiedad",
+                                "Forma la identidad con repetición",
+                                "Construye resiliencia y autoestima"
+                            ]
+                        },
+                        {
+                            title: "Sueño Profundo",
+                            bullets: [
+                                "Apoya el crecimiento físico e inmunidad",
+                                "Mejora el desarrollo cognitivo",
+                                "Construye resiliencia emocional"
+                            ]
+                        }
+                    ]
+                },
+                research: {
+                    title: "Fundamentado en Investigación",
+                    slides: [
+                        {
+                            title: "Neurociencia",
+                            description: "Familiaridad auditiva y seguridad: las narrativas de audio calmantes activan los sistemas de relajación del cerebro y ayudan a reducir la respuesta al estrés del niño"
+                        },
+                        {
+                            title: "Psicología del Desarrollo",
+                            description: "Apego y diálogo interno: las interacciones positivas entre padres e hijos moldean las vías neurales que apoyan la regulación emocional y construyen resiliencia interna"
+                        },
+                        {
+                            title: "Ciencia del Sueño",
+                            description: "Rutinas, señales circadianas, sueño profundo: los rituales consistentes antes de dormir fortalecen los ciclos naturales de sueño-vigilia y apoyan el desarrollo saludable del niño"
+                        }
+                    ]
+                },
+                superpower: {
+                    title: "Por Qué la Hora de Dormir es un Superpoder",
+                    cards: [
+                        {
+                            title: "El sueño profundo apoya el crecimiento y la consolidación de la memoria",
+                            description: "Los cerebros de los niños procesan y almacenan información durante el sueño, convirtiendo las experiencias diarias en aprendizaje y desarrollo a largo plazo"
+                        },
+                        {
+                            title: "Las rutinas consistentes señalan seguridad y calma",
+                            description: "Las narrativas de audio calmantes activan la respuesta de relajación del sistema nervioso, reduciendo las hormonas del estrés y promoviendo un mejor sueño"
+                        },
+                        {
+                            title: "Los rituales crean previsibilidad, confianza y noches más fáciles",
+                            description: "Las rutinas consistentes antes de dormir establecen señales circadianas, ayudando a los niños a sentirse seguros y haciendo que las transiciones al sueño sean más suaves con el tiempo"
+                        }
+                    ]
+                },
+                cta: {
+                    title: "¿Listo para Probar Loomi?",
+                    button: "Únete al Acceso Anticipado"
+                },
+                footer: {
+                    tagline: "✨ Loomi - La ciencia de niños tranquilos y seguros",
+                    copyright: "© 2025 Loomi. Creado con ❤️ por 3 hermanos y padres para padres que buscan noches tranquilas."
+                },
+                modal: {
+                    title: "Únete al Acceso Anticipado"
+                }
+            },
+
+            fa: {
+                hero: {
+                    title: "داستان‌های خواب با پشتوانه علمی همراه با تأییدیه‌های مثبت برای کودکان ۰ تا ۶ سال",
+                    badges: [
+                        "ساخته والدین",
+                        "مبتنی بر علوم اعصاب",
+                        "محبوب در وقت خواب"
+                    ],
+                    ctaButton: "عضویت زودهنگام"
+                },
+                comparison: {
+                    title: "داستان‌هایی که اعتماد به نفس می‌سازند در حالی که به خواب می‌برند",
+                    description: "لومی داستان‌های سنتی وقت خواب را به ابزارهای قدرتمندی برای ساختن عزت نفس تبدیل می‌کند. با بافتن تأییدیه‌های مثبت به طور طبیعی در روایت‌های جذاب، کودکان پیام‌های اعتمادبخش را در حالی که به خواب می‌روند جذب می‌کنند. ببینید چگونه همان داستان با فناوری منحصر به فرد تزریق تأییدیه ما به وسیله‌ای برای رشد عاطفی تبدیل می‌شود.",
+                    otherApps: {
+                        title: "برنامه‌های دیگر",
+                        items: [
+                            "فقط یک برنامه داستان دیگر",
+                            "زمان صفحه با تحریک بالا",
+                            "داستان‌هایی که سرگرم می‌کنند",
+                            "صداهای آرام‌بخش"
+                        ]
+                    },
+                    loomiApp: {
+                        title: "برنامه لومی",
+                        items: [
+                            "ابزاری رشدی برای اعتماد به نفس و کنجکاوی",
+                            "زمان استراحت و تخیل با تحریک پایین",
+                            "داستان‌هایی که شخصیت را پرورش می‌دهند",
+                            "تأییدیه‌های علمی برای ساختن قدرت شناختی"
+                        ]
+                    }
+                },
+                formula: {
+                    title: "فرمول لومی",
+                    pillars: [
+                        {
+                            title: "داستان‌گویی",
+                            bullets: [
+                                "زبان و تخیل می‌سازد",
+                                "آیین‌های پیوند را ایجاد می‌کند",
+                                "خلاقیت و شگفتی را برمی‌انگیزد"
+                            ]
+                        },
+                        {
+                            title: "تأییدیه‌ها",
+                            bullets: [
+                                "اعتماد به نفس را رشد می‌دهد، اضطراب را کاهش می‌دهد",
+                                "هویت را با تکرار شکل می‌دهد",
+                                "تاب‌آوری و عزت نفس می‌سازد"
+                            ]
+                        },
+                        {
+                            title: "خواب عمیق",
+                            bullets: [
+                                "از رشد فیزیکی و ایمنی حمایت می‌کند",
+                                "رشد شناختی را تقویت می‌کند",
+                                "تاب‌آوری عاطفی می‌سازد"
+                            ]
+                        }
+                    ]
+                },
+                research: {
+                    title: "مبتنی بر تحقیق",
+                    slides: [
+                        {
+                            title: "علوم اعصاب",
+                            description: "آشنایی شنیداری و ایمنی: روایت‌های صوتی آرام‌بخش سیستم‌های آرامش مغز را فعال می‌کنند و به کاهش واکنش استرس کودک کمک می‌کنند"
+                        },
+                        {
+                            title: "روانشناسی رشد",
+                            description: "دلبستگی و خودگویی: تعاملات مثبت والد-فرزند مسیرهای عصبی را شکل می‌دهد که از تنظیم عاطفی حمایت می‌کند و تاب‌آوری درونی می‌سازد"
+                        },
+                        {
+                            title: "علم خواب",
+                            description: "روال‌ها، نشانه‌های شبانه‌روزی، خواب عمیق: آیین‌های ثابت وقت خواب چرخه‌های طبیعی خواب-بیداری را تقویت می‌کند و از رشد سالم کودک حمایت می‌کند"
+                        }
+                    ]
+                },
+                superpower: {
+                    title: "چرا وقت خواب یک ابرقدرت است",
+                    cards: [
+                        {
+                            title: "خواب عمیق از رشد و تثبیت حافظه حمایت می‌کند",
+                            description: "مغز کودکان در خواب اطلاعات را پردازش و ذخیره می‌کند و تجربیات روزانه را به یادگیری و رشد بلندمدت تبدیل می‌کند"
+                        },
+                        {
+                            title: "روال‌های ثابت نشانه امنیت و آرامش هستند",
+                            description: "روایت‌های صوتی آرام‌بخش واکنش آرامش سیستم عصبی را فعال می‌کنند، هورمون‌های استرس را کاهش می‌دهند و خواب بهتری را ترویج می‌کنند"
+                        },
+                        {
+                            title: "آیین‌ها قابل پیش‌بینی، اعتماد و شب‌های آسان‌تر ایجاد می‌کنند",
+                            description: "روال‌های ثابت وقت خواب نشانه‌های شبانه‌روزی را ایجاد می‌کنند و به کودکان کمک می‌کنند احساس امنیت کنند و گذار به خواب را با گذشت زمان روان‌تر می‌کنند"
+                        }
+                    ]
+                },
+                cta: {
+                    title: "آماده امتحان لومی هستید؟",
+                    button: "عضویت زودهنگام"
+                },
+                footer: {
+                    tagline: "✨ لومی - علم کودکان آرام و با اعتماد به نفس",
+                    copyright: "© ۲۰۲۵ لومی. با ❤️ توسط ۳ برادر و پدر برای والدینی که به دنبال شب‌های آرام هستند ساخته شده است."
+                },
+                modal: {
+                    title: "عضویت زودهنگام"
+                }
+            }
+        };
+
+        // Language selection - change 'en' to 'es' or 'fa' to test other languages
+        let currentLanguage = 'en';
+        const CONTENT = LANGUAGES[currentLanguage];
+
+        // Function to switch language (for future UI)
+        function switchLanguage(lang) {
+            if (LANGUAGES[lang]) {
+                currentLanguage = lang;
+                document.documentElement.lang = lang;
+                document.body.dir = lang === 'fa' ? 'rtl' : 'ltr';
+                injectContent(LANGUAGES[lang]);
+            }
+        }
+
+        /* ================================================================
+           CONTENT INJECTION FUNCTION
+           Automatically populates page content from CONTENT object above
+           ================================================================ */
+        function injectContent(content) {
+            // Defensive check - if content is an event object or undefined, use CONTENT
+            if (!content || !content.hero) {
+                content = CONTENT;
+            }
+
+            // Safety check - if CONTENT is also undefined, bail out with error
+            if (!content || typeof content !== 'object' || !content.hero) {
+                console.error('injectContent: content is not defined properly. LANGUAGES:', typeof LANGUAGES, 'CONTENT:', typeof CONTENT);
+                return;
+            }
+
+            // Hero Section
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle && content.hero && content.hero.title) {
+                heroTitle.textContent = content.hero.title;
+            }
+
+            const badges = document.querySelectorAll('.hero-badges .badge');
+            if (content.hero && content.hero.badges) {
+                content.hero.badges.forEach((text, i) => {
+                    if (badges[i]) badges[i].textContent = text;
+                });
+            }
+
+            // All CTA buttons
+            if (content.hero && content.hero.ctaButton) {
+                document.querySelectorAll('.btn-primary').forEach(btn => {
+                    const originalText = btn.textContent.trim();
+                    if (originalText.includes('Join') || originalText === '') {
+                        btn.textContent = content.hero.ctaButton;
+                    }
+                });
+            }
+
+            // Comparison Section Header
+            const comparisonHeader = document.querySelector('.comparison-header');
+            if (comparisonHeader && content.comparison) {
+                const h2 = comparisonHeader.querySelector('h2');
+                const p = comparisonHeader.querySelector('p');
+                if (h2 && content.comparison.title) h2.textContent = content.comparison.title;
+                if (p && content.comparison.description) p.textContent = content.comparison.description;
+            }
+
+            // Other Apps comparison items
+            const storyColumns = document.querySelectorAll('.story-columns');
+            if (storyColumns[1] && content.comparison && content.comparison.otherApps) {
+                const regularColumn = storyColumns[1].querySelector('.story-column.regular');
+                if (regularColumn) {
+                    const h3 = regularColumn.querySelector('h3');
+                    if (h3 && content.comparison.otherApps.title) {
+                        const svg = h3.querySelector('svg');
+                        h3.innerHTML = content.comparison.otherApps.title;
+                        if (svg) h3.appendChild(svg);
+                    }
+
+                    const paragraphs = regularColumn.querySelectorAll('.story-text p');
+                    if (content.comparison.otherApps.items) {
+                        content.comparison.otherApps.items.forEach((text, i) => {
+                            if (paragraphs[i]) {
+                                paragraphs[i].innerHTML = `<span class="emoji">❌</span>${text}`;
+                            }
+                        });
+                    }
+                }
+            }
+
+            // Loomi App comparison items
+            if (storyColumns[1] && content.comparison && content.comparison.loomiApp) {
+                const loomiColumn = storyColumns[1].querySelector('.story-column.loomi');
+                if (loomiColumn) {
+                    const h3 = loomiColumn.querySelector('h3');
+                    if (h3 && content.comparison.loomiApp.title) {
+                        const svg = h3.querySelector('svg');
+                        h3.innerHTML = content.comparison.loomiApp.title;
+                        if (svg) h3.appendChild(svg);
+                    }
+
+                    const paragraphs = loomiColumn.querySelectorAll('.story-text p');
+                    if (content.comparison.loomiApp.items) {
+                        content.comparison.loomiApp.items.forEach((text, i) => {
+                            if (paragraphs[i]) {
+                                paragraphs[i].innerHTML = `<span class="emoji">✅</span>${text}`;
+                            }
+                        });
+                    }
+                }
+            }
+
+            // Formula Section
+            const formulaTitle = document.querySelector('.formula-section .section-title');
+            if (formulaTitle && content.formula && content.formula.title) {
+                formulaTitle.textContent = content.formula.title;
+            }
+
+            const formulaTitles = document.querySelectorAll('.formula-title');
+            const formulaDescriptions = document.querySelectorAll('.formula-description ul');
+
+            if (content.formula && content.formula.pillars) {
+                content.formula.pillars.forEach((pillar, i) => {
+                    if (formulaTitles[i] && pillar.title) {
+                        formulaTitles[i].textContent = pillar.title;
+                    }
+                    if (formulaDescriptions[i] && pillar.bullets) {
+                        formulaDescriptions[i].innerHTML = pillar.bullets.map(b => `<li>${b}</li>`).join('');
+                    }
+                });
+            }
+
+            // Research Carousel
+            const researchTitle = document.querySelector('.research-carousel-section .section-title');
+            if (researchTitle && content.research && content.research.title) {
+                researchTitle.textContent = content.research.title;
+            }
+
+            const researchSlides = document.querySelectorAll('.research-slide');
+            if (content.research && content.research.slides) {
+                content.research.slides.forEach((slide, i) => {
+                    if (researchSlides[i]) {
+                        const h3 = researchSlides[i].querySelector('h3');
+                        const p = researchSlides[i].querySelector('p');
+                        if (h3 && slide.title) h3.textContent = slide.title;
+                        if (p && slide.description) p.textContent = slide.description;
+                    }
+                });
+            }
+
+            // Superpower Section
+            const superpowerTitle = document.querySelector('.superpower-section .section-title');
+            if (superpowerTitle && content.superpower && content.superpower.title) {
+                superpowerTitle.textContent = content.superpower.title;
+            }
+
+            const superpowerCards = document.querySelectorAll('.superpower-card');
+            if (content.superpower && content.superpower.cards) {
+                content.superpower.cards.forEach((card, i) => {
+                    if (superpowerCards[i]) {
+                        const h3 = superpowerCards[i].querySelector('h3');
+                        const p = superpowerCards[i].querySelector('p');
+                        if (h3 && card.title) h3.textContent = card.title;
+                        if (p && card.description) p.textContent = card.description;
+                    }
+                });
+            }
+
+            // Final CTA
+            const ctaTitle = document.querySelector('.cta-title');
+            if (ctaTitle && content.cta && content.cta.title) {
+                ctaTitle.textContent = content.cta.title;
+            }
+
+            // Footer
+            const footerParagraphs = document.querySelectorAll('footer p');
+            if (content.footer) {
+                if (footerParagraphs[0] && content.footer.tagline) {
+                    footerParagraphs[0].textContent = content.footer.tagline;
+                }
+                if (footerParagraphs[1] && content.footer.copyright) {
+                    footerParagraphs[1].textContent = content.footer.copyright;
+                }
+            }
+
+            // Modal
+            const modalTitle = document.querySelector('#modal h2');
+            if (modalTitle && content.modal && content.modal.title) {
+                modalTitle.textContent = content.modal.title;
+            }
+        }
+
+        // Initialize content when DOM is ready
+        document.addEventListener('DOMContentLoaded', injectContent);
+
+        /* ================================================================
+           EXISTING PAGE FUNCTIONALITY
+           ================================================================ */
+
         // Generate starfield
         const starfield = document.getElementById('starfield');
         for (let i = 0; i < 200; i++) {
