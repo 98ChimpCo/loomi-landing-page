@@ -414,14 +414,10 @@
             position: relative;
         }
 
-        .formula-description li::before {
-            content: '•';
+        .formula-description li:before {
+            content: "✨";
             position: absolute;
             left: 0;
-            top: -18%;
-            color: #f4a460;
-            font-weight: bold;
-            font-size: 20px;
         }
 
         /* Galaxy Banner Section */
@@ -627,6 +623,356 @@
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
         }
 
+        /* ====================================================================
+           HORIZONTAL SCROLLING RESEARCH CAROUSEL
+           ==================================================================== */
+
+         .validation-carousel-section {
+             padding: 40px 0 100px;
+             overflow: hidden;
+             width: 100vw;
+             position: relative;
+             left: 50%;
+             right: 50%;
+             margin-left: -50vw;
+             margin-right: -50vw;
+         }
+
+        .validation-carousel-section .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .validation-subtitle {
+            text-align: center;
+            font-size: 24px;
+            color: #a5b4fc;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Scrolling container */
+        .scroll-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 80px 0;
+            -webkit-mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+            );
+            mask-image: linear-gradient(
+                to right,
+                transparent 0%,
+                black 10%,
+                black 90%,
+                transparent 100%
+            );
+        }
+
+        /* Scrolling track */
+        .scroll-track {
+            display: flex;
+            gap: 40px;
+            animation: scroll 60s linear infinite;
+            width: fit-content;
+        }
+
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .research-source-card {
+            flex-shrink: 0;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Gradient overlay on hover - matches formula cards */
+        .research-source-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .research-source-card:hover::before {
+            opacity: 1;
+        }
+
+        .research-source-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(167, 139, 250, 0.4);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Journal cover */
+        .journal-cover {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #1a2332 0%, #2a3442 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* For real journal cover images */
+        .journal-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Journal name badge */
+        .journal-name {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            background: linear-gradient(
+                135deg,
+                rgba(244, 164, 96, 0.6),
+                rgba(244, 164, 96, 0.3)
+            );
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            backdrop-filter: blur(20px) brightness(1.2);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card content */
+        .source-content {
+            padding: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .source-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            min-height: 44px;
+        }
+
+        .source-meta {
+            font-size: 13px;
+            color: #8b9dc3;
+            margin-bottom: 8px;
+        }
+
+        .source-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #a5b4fc;
+        }
+
+  /* ====================================================================
+   RESEARCH MODAL STYLES
+   ==================================================================== */
+
+        .research-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+
+        .research-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .research-modal-content {
+            background: linear-gradient(135deg, #1a2332 0%, #0a0e1f 100%);
+            padding: 60px;
+            border-radius: 25px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .research-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: rgba(244, 164, 96, 0.15);
+            border: 1px solid rgba(244, 164, 96, 0.4);
+            border-radius: 8px;
+            color: #f4a460;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .research-link:hover {
+            background: rgba(244, 164, 96, 0.25);
+            border-color: rgba(244, 164, 96, 0.6);
+            transform: translateX(5px);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            cursor: pointer;
+            color: #a5b4fc;
+            transition: color 0.3s;
+            background: none;
+            border: none;
+            line-height: 1;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+        }
+
+        .modal-close:hover {
+            color: #ffffff;
+        }
+
+        .research-modal-header {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .research-modal-header h2 {
+            font-size: 36px;
+            line-height: 1.3;
+            margin-bottom: 15px;
+            color: #ffffff;
+            padding-right: 40px;
+        }
+
+        .research-journal-badge {
+            display: inline-block;
+            background: rgba(244, 164, 96, 0.15);
+            border: 1px solid rgba(244, 164, 96, 0.3);
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #f4a460;
+            margin-bottom: 10px;
+        }
+
+        .research-authors {
+            font-size: 18px;
+            color: #a5b4fc;
+            margin-bottom: 8px;
+        }
+
+        .research-meta {
+            font-size: 15px;
+            color: #8b9dc3;
+        }
+
+        .research-modal-section {
+            margin-bottom: 35px;
+        }
+
+        .research-modal-section h3 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .research-modal-section p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 15px;
+        }
+
+        .research-modal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research-modal-section li {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .research-modal-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #f4a460;
+            font-weight: 600;
+        }
+
+        .research-highlight-box {
+            background: rgba(244, 164, 96, 0.1);
+            border-left: 4px solid #f4a460;
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .research-highlight-box p {
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
         .research-carousel-section {
             padding: 20px 0;
             background: rgba(102, 126, 234, 0.0); /* turning it clear by setting alpha to 0.0 from 0.03 */
@@ -773,8 +1119,6 @@
                 display: none;
             }
 
-            /* ... rest of your mobile styles continue ... */
-
             .section-title {
                 font-size: 36px;
             }
@@ -821,6 +1165,14 @@
                 font-size: 16px;
             }
 
+            .research-source-card {
+                width: 280px;
+            }
+
+            .scroll-track {
+                gap: 30px;
+            }
+
             /* Research Carousel */
             .research-slides {
                 height: 700px;
@@ -837,6 +1189,18 @@
 
             .slide-card h3 {
                 font-size: 24px;
+            }
+
+            .research-modal-content {
+                padding: 40px 30px;
+            }
+
+            .research-modal-header h2 {
+                font-size: 28px;
+            }
+
+            .research-modal-section h3 {
+                font-size: 20px;
             }
         }
 
@@ -1108,6 +1472,225 @@
                     <span class="slide-dot active" onclick="showSlide(0)"></span>
                     <span class="slide-dot" onclick="showSlide(1)"></span>
                     <span class="slide-dot" onclick="showSlide(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCIENTIFIC VALIDATION - HORIZONTAL SCROLLING CAROUSEL -->
+        <section class="validation-carousel-section">
+            <div class="container">
+                <p class="validation-subtitle">Our approach is validated by leading scientific journals and researchers in sleep science, neuroscience, and child development</p>
+            </div>
+
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- Card 1: Sleep Journal -->
+                    <div class="research-source-card" onclick="openResearchModal(0)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Sleep Journal</div>
+                            <img src="./assets/journals/sleep-journal-tmr.jpeg" alt="Sleep Journal Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Targeted Memory Reactivation During Sleep</h4>
+                            <p class="source-meta">Cairney et al. • 2014</p>
+                            <p class="source-description">Audio cues strengthen emotional memories during sleep</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: PLoS ONE -->
+                    <div class="research-source-card" onclick="openResearchModal(1)">
+                        <div class="journal-cover">
+                            <div class="journal-name">PLoS ONE</div>
+                            <img src="./assets/journals/plos-one.png" alt="PLoS ONE Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Sleep Promotes Emotional Memory in Children</h4>
+                            <p class="source-meta">Prehn-Kristensen et al. • 2013</p>
+                            <p class="source-description">Children excel at emotional sleep learning</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Science -->
+                    <div class="research-source-card" onclick="openResearchModal(2)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Science</div>
+                            <img src="./assets/journals/science.jpg" alt="Science Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Unlearning Implicit Social Biases During Sleep</h4>
+                            <p class="source-meta">Hu et al. • 2015</p>
+                            <p class="source-description">Deep-seated beliefs modified through sleep cues</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: SCAN -->
+                    <div class="research-source-card" onclick="openResearchModal(3)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Social Cognitive & Affective Neuroscience</div>
+                            <img src="./assets/journals/scan.jpeg" alt="SCAN Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Self-Affirmation Activates Brain Reward Systems</h4>
+                            <p class="source-meta">Cascio et al. • 2016</p>
+                            <p class="source-description">Affirmations activate VMPFC and predict behavior change</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Annual Review -->
+                    <div class="research-source-card" onclick="openResearchModal(4)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Annual Review of Psychology</div>
+                            <img src="./assets/journals/annual-review-psych.png" alt="Annual Review Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">The Psychology of Change: Self-Affirmation</h4>
+                            <p class="source-meta">Cohen & Sherman • 2014</p>
+                            <p class="source-description">Affirmations interrupt negative thought cycles</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Healthcare -->
+                    <div class="research-source-card" onclick="openResearchModal(5)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Healthcare</div>
+                            <img src="./assets/journals/healthcare.png" alt="Healthcare Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Self-Affirmation in Educational Settings</h4>
+                            <p class="source-meta">Escobar-Soler et al. • 2023</p>
+                            <p class="source-description">Meta-analysis confirms academic benefits</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Sleep - Routines -->
+                    <div class="research-source-card" onclick="openResearchModal(6)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Sleep Journal</div>
+                            <img src="./assets/journals/sleep-journal-routines.jpeg" alt="Sleep Journal Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Bedtime Routines for Young Children</h4>
+                            <p class="source-meta">Mindell et al. • 2015</p>
+                            <p class="source-description">10,000+ children study validates routine consistency</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Scientific Reports -->
+                    <div class="research-source-card" onclick="openResearchModal(7)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Scientific Reports</div>
+                            <img src="./assets/journals/scientific-reports.jpg" alt="Scientific Reports Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Early Bedtime & Academic Performance</h4>
+                            <p class="source-meta">Nishiyama et al. • 2023</p>
+                            <p class="source-description">Early routines predict higher academic scores</p>
+                        </div>
+                    </div>
+
+                    <!-- DUPLICATE SET FOR INFINITE LOOP -->
+                    <div class="research-source-card" onclick="openResearchModal(0)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Sleep Journal</div>
+                            <img src="./assets/journals/sleep-journal-tmr.jpeg" alt="Sleep Journal Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Targeted Memory Reactivation During Sleep</h4>
+                            <p class="source-meta">Cairney et al. • 2014</p>
+                            <p class="source-description">Audio cues strengthen emotional memories during sleep</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: PLoS ONE -->
+                    <div class="research-source-card" onclick="openResearchModal(1)">
+                        <div class="journal-cover">
+                            <div class="journal-name">PLoS ONE</div>
+                            <img src="./assets/journals/plos-one.png" alt="PLoS ONE Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Sleep Promotes Emotional Memory in Children</h4>
+                            <p class="source-meta">Prehn-Kristensen et al. • 2013</p>
+                            <p class="source-description">Children excel at emotional sleep learning</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Science -->
+                    <div class="research-source-card" onclick="openResearchModal(2)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Science</div>
+                            <img src="./assets/journals/science.jpg" alt="Science Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Unlearning Implicit Social Biases During Sleep</h4>
+                            <p class="source-meta">Hu et al. • 2015</p>
+                            <p class="source-description">Deep-seated beliefs modified through sleep cues</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: SCAN -->
+                    <div class="research-source-card" onclick="openResearchModal(3)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Social Cognitive & Affective Neuroscience</div>
+                            <img src="./assets/journals/scan.jpeg" alt="SCAN Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Self-Affirmation Activates Brain Reward Systems</h4>
+                            <p class="source-meta">Cascio et al. • 2016</p>
+                            <p class="source-description">Affirmations activate VMPFC and predict behavior change</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Annual Review -->
+                    <div class="research-source-card" onclick="openResearchModal(4)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Annual Review of Psychology</div>
+                            <img src="./assets/journals/annual-review-psych.png" alt="Annual Review Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">The Psychology of Change: Self-Affirmation</h4>
+                            <p class="source-meta">Cohen & Sherman • 2014</p>
+                            <p class="source-description">Affirmations interrupt negative thought cycles</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Healthcare -->
+                    <div class="research-source-card" onclick="openResearchModal(5)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Healthcare</div>
+                            <img src="./assets/journals/healthcare.png" alt="Healthcare Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Self-Affirmation in Educational Settings</h4>
+                            <p class="source-meta">Escobar-Soler et al. • 2023</p>
+                            <p class="source-description">Meta-analysis confirms academic benefits</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Sleep - Routines -->
+                    <div class="research-source-card" onclick="openResearchModal(6)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Sleep Journal</div>
+                            <img src="./assets/journals/sleep-journal-routines.jpeg" alt="Sleep Journal Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Bedtime Routines for Young Children</h4>
+                            <p class="source-meta">Mindell et al. • 2015</p>
+                            <p class="source-description">10,000+ children study validates routine consistency</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Scientific Reports -->
+                    <div class="research-source-card" onclick="openResearchModal(7)">
+                        <div class="journal-cover">
+                            <div class="journal-name">Scientific Reports</div>
+                            <img src="./assets/journals/scientific-reports.jpg" alt="Scientific Reports Cover">
+                        </div>
+                        <div class="source-content">
+                            <h4 class="source-title">Early Bedtime & Academic Performance</h4>
+                            <p class="source-meta">Nishiyama et al. • 2023</p>
+                            <p class="source-description">Early routines predict higher academic scores</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1827,6 +2410,266 @@
             slideIndex = (slideIndex + 1) % slides.length;
             showSlide(slideIndex);
         }, 5000);
+
+        /* ================================================================
+           RESEARCH DATA FOR CLICKABLE MODALS
+           ================================================================ */
+
+        const RESEARCH_DATA = [
+            {
+                journal: "Sleep Journal",
+                title: "Targeted Memory Reactivation During Sleep Facilitates Emotional Memory Consolidation",
+                authors: "Cairney, S. A., Durrant, S. J., Musgrove, H., & Lewis, P. A.",
+                year: "2014",
+                citation: "Sleep, 37(8), 1307-1315",
+                url: "https://academic.oup.com/sleep/article/37/8/1307/2416706",
+                keyFinding: "Re-playing audio cues associated with specific memories during Slow-Wave Sleep (deep sleep) significantly strengthens those memories. Crucially, the brain selectively prioritizes emotional content for consolidation.",
+                loomiApplication: "This is the 'smoking gun' for Loomi's delivery method. It validates that affirmations played during deep sleep aren't passively lost—the brain actively 'saves' these positive emotional associations into long-term memory without the child needing to be awake.",
+                methodology: [
+                    "Participants learned emotional and neutral word pairs before sleep",
+                    "During slow-wave sleep, half of the word pairs were cued with audio",
+                    "Memory testing after sleep showed selective strengthening of cued memories",
+                    "Effect was strongest for emotionally-charged content"
+                ],
+                implications: [
+                    "Sleep is an active state for emotional memory processing",
+                    "External cues can guide which memories get consolidated",
+                    "Emotional content receives preferential treatment during sleep",
+                    "Non-invasive audio intervention can enhance memory formation"
+                ]
+            },
+            {
+                journal: "PLoS ONE",
+                title: "Sleep Promotes Consolidation of Emotional Memory in Healthy Children",
+                authors: "Prehn-Kristensen, A., Göder, R., Fischer, J., Wilhelm, I., Seeck-Hirschner, M., Aldenhoff, J., & Baving, L.",
+                year: "2013",
+                citation: "PLoS ONE, 8(5), e65920",
+                url: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0065920",
+                keyFinding: "Children (approximately age 10) have superior ability to consolidate emotional memories during sleep compared to adults. Healthy children displayed a 'sleep-dependent emotional memory bias'—their sleeping brains are naturally hyper-focused on processing emotional data.",
+                loomiApplication: "This validates the target audience. Children are biologically more receptive to sleep-based emotional learning than adults, making ages 0-6 the ideal window for Loomi's intervention. Their brains are optimized for exactly this approach.",
+                methodology: [
+                    "Compared children (age ~10) to young adults in memory tasks",
+                    "Participants viewed emotional and neutral images before sleep",
+                    "Memory testing occurred after sleep and after equivalent wake period",
+                    "Children showed selective enhancement of emotional memories after sleep"
+                ],
+                implications: [
+                    "Children's brains prioritize emotional learning during sleep",
+                    "Sleep-dependent memory advantage is stronger in children than adults",
+                    "Emotional content benefits most from overnight consolidation",
+                    "Developmental window exists for enhanced emotional learning"
+                ]
+            },
+            {
+                journal: "Science",
+                title: "Unlearning Implicit Social Biases During Sleep",
+                authors: "Hu, X., Antony, J. W., Creery, J. D., Vargas, I. M., Bodenhausen, G. V., & Paller, K. A.",
+                year: "2015",
+                citation: "Science, 348(6238), 1013-1015",
+                url: "https://www.science.org/doi/10.1126/science.aaa3841",
+                keyFinding: "Researchers successfully reduced implicit social biases (deep-seated automatic attitudes) by playing sound cues during sleep. This demonstrates that fundamental attitudes can be modified during sleep states.",
+                loomiApplication: "If sleep-learning can reduce negative biases, it can enhance positive self-beliefs. This supports the idea that deep-seated attitudes like 'I am capable' and 'I am brave' can be strengthened during sleep—they're not just surface-level mood changes.",
+                methodology: [
+                    "Participants underwent counter-bias training while awake",
+                    "Each training session paired with a distinct sound",
+                    "During nap, one of the sounds was replayed during slow-wave sleep",
+                    "Bias reduction was stronger for the cued category one week later"
+                ],
+                implications: [
+                    "Deeply-held attitudes can be modified during sleep",
+                    "Sleep consolidation enhances learned behavioral changes",
+                    "Targeted memory reactivation works for attitude change",
+                    "Effects persist beyond immediate post-sleep period"
+                ]
+            },
+            {
+                journal: "Social Cognitive and Affective Neuroscience",
+                title: "Self-Affirmation Activates Brain Systems Associated with Self-Related Processing and Reward",
+                authors: "Cascio, C. N., O'Donnell, M. B., Tinney, F. J., Lieberman, M. D., Taylor, S. E., Strecher, V. J., & Falk, E. B.",
+                year: "2016",
+                citation: "Social Cognitive and Affective Neuroscience, 11(4), 621-629",
+                url: "https://academic.oup.com/scan/article/11/4/621/2375059",
+                keyFinding: "Using fMRI scans, this study showed that self-affirmations activate the Ventromedial Prefrontal Cortex (VMPFC)—the brain's reward center. Affirmation increased activity in pathways involved in positive valuation, predicting actual behavior change weeks later.",
+                loomiApplication: "Loomi isn't just 'telling kids nice things'—it's activating the VMPFC to physically rewire how their brains process reward and self-worth. This is a neurological intervention, not just a mood booster.",
+                methodology: [
+                    "Participants completed self-affirmation tasks in fMRI scanner",
+                    "Brain activity measured during affirmation vs. control tasks",
+                    "Follow-up tracked sedentary behavior change over one month",
+                    "VMPFC activity during affirmation predicted behavior change"
+                ],
+                implications: [
+                    "Self-affirmation is a neural, not just psychological, intervention",
+                    "Brain's reward system treats affirmations as valuable",
+                    "Affirmation activity predicts real-world behavior change",
+                    "Effect bridges immediate brain response to long-term outcomes"
+                ]
+            },
+            {
+                journal: "Annual Review of Psychology",
+                title: "The Psychology of Change: Self-Affirmation and Social Psychological Intervention",
+                authors: "Cohen, G. L., & Sherman, D. K.",
+                year: "2014",
+                citation: "Annual Review of Psychology, 65, 333-371",
+                url: "https://www.annualreviews.org/doi/10.1146/annurev-psych-010213-115137",
+                keyFinding: "A comprehensive review showing that affirmations act as a buffer against stress. They interrupt 'recursive negative cycles' (e.g., I failed → I am a failure → I will fail again) and replace them with adaptive cycles.",
+                loomiApplication: "This supports Loomi's 'resilience' messaging. Bedtime affirmations help children bounce back from daily setbacks by resetting their self-narrative before the next day begins. It's preventative emotional care.",
+                methodology: [
+                    "Systematic review of self-affirmation intervention studies",
+                    "Analysis across educational, health, and interpersonal domains",
+                    "Examination of mechanisms: threat reduction and narrative coherence",
+                    "Meta-analysis of effect sizes across diverse populations"
+                ],
+                implications: [
+                    "Affirmations reduce psychological threat responses",
+                    "Effect is strongest under conditions of stress or identity threat",
+                    "Interventions can have cascade effects on multiple outcomes",
+                    "Small interventions can produce lasting change through recursive processes"
+                ]
+            },
+            {
+                journal: "Healthcare",
+                title: "Effectiveness of Self-Affirmation Interventions in Educational Settings: A Meta-Analysis",
+                authors: "Escobar-Soler, C., Cebolla, A., Soler, J., & Garcia-Campayo, J.",
+                year: "2023",
+                citation: "Healthcare, 11(3), 412",
+                url: "https://www.mdpi.com/2227-9032/11/3/412",
+                keyFinding: "A meta-analysis confirming that self-affirmation interventions have a statistically significant positive effect on academic performance and well-being, particularly for students under stress or facing 'identity threats.'",
+                loomiApplication: "This moves benefits from 'emotional' to 'tangible.' Loomi could indirectly support better school performance by lowering the anxiety that blocks learning—giving parents concrete outcomes to measure.",
+                methodology: [
+                    "Systematic search of affirmation intervention studies in education",
+                    "Meta-analysis of 29 studies with 12,000+ participants",
+                    "Examined effects on grades, test performance, and well-being",
+                    "Moderator analyses for age, intervention type, and duration"
+                ],
+                implications: [
+                    "Affirmations have measurable academic benefits",
+                    "Effects are consistent across diverse student populations",
+                    "Intervention timing and context influence effectiveness",
+                    "Benefits extend beyond immediate post-intervention period"
+                ]
+            },
+            {
+                journal: "Sleep Journal",
+                title: "Bedtime Routines for Young Children: A Dose-Dependent Association with Sleep Outcomes",
+                authors: "Mindell, J. A., Li, A. M., Sadeh, A., Kwon, R., & Goh, D. Y.",
+                year: "2015",
+                citation: "Sleep, 38(5), 717-722",
+                url: "https://academic.oup.com/sleep/article/38/5/717/2417971",
+                keyFinding: "A massive study (10,000+ children) finding a 'dose-dependent' relationship: the more consistent the bedtime routine, the better the sleep quality, emotional regulation, and behavioral outcomes.",
+                loomiApplication: "This validates the 'habit' aspect of Loomi. The ritual of using the app nightly is therapeutic in itself, separate from the content. Consistency is the delivery system that makes everything work.",
+                methodology: [
+                    "Survey of 10,085 mothers from 14 countries/regions",
+                    "Assessment of bedtime routine consistency and sleep outcomes",
+                    "Examined relationship between routine frequency and sleep quality",
+                    "Controlled for demographic and environmental factors"
+                ],
+                implications: [
+                    "Bedtime routines show dose-dependent benefits",
+                    "Consistency matters more than specific routine content",
+                    "Effects cross cultural and socioeconomic boundaries",
+                    "Routine establishment is a modifiable protective factor"
+                ]
+            },
+            {
+                journal: "Scientific Reports",
+                title: "Association of Early Bedtime at 3 Years of Age with Higher Academic Performance and Non-Cognitive Skills in Elementary School",
+                authors: "Nishiyama, M., Iwasaki, M., & Okuda, N.",
+                year: "2023",
+                citation: "Scientific Reports, 13, 8743",
+                url: "https://www.nature.com/articles/s41598-023-35945-0",
+                keyFinding: "A longitudinal study showing that consistent, early bedtime routines at age 3 predicted higher academic scores and 'non-cognitive skills' (like diligence and self-esteem) years later in elementary school.",
+                loomiApplication: "This supports the 'long-term investment' angle. Establishing positive bedtime habits with Loomi early (ages 0-6) pays dividends in traits like diligence and academic performance years down the line.",
+                methodology: [
+                    "Longitudinal cohort study tracking children from age 3 to elementary school",
+                    "Assessment of bedtime routines at age 3",
+                    "Academic and non-cognitive skill measurement in elementary school",
+                    "Statistical modeling controlling for confounding variables"
+                ],
+                implications: [
+                    "Early sleep habits have long-term developmental effects",
+                    "Benefits extend beyond sleep quality to cognitive outcomes",
+                    "Intervention window exists in early childhood",
+                    "Non-cognitive skills are sensitive to early sleep patterns"
+                ]
+            }
+        ];
+
+        /* ================================================================
+           MODAL FUNCTIONS
+           ================================================================ */
+
+          function openResearchModal(index) {
+              const study = RESEARCH_DATA[index];
+              const modal = document.getElementById('researchModal');
+              const body = document.getElementById('researchModalBody');
+
+              // Build modal content
+              body.innerHTML = `
+                  <div class="research-modal-header">
+                      <div class="research-journal-badge">${study.journal}</div>
+                      <h2>${study.title}</h2>
+                      <p class="research-authors">${study.authors}</p>
+                      <p class="research-meta">${study.citation}</p>
+                      <a href="${study.url}" target="_blank" class="research-link">Read Full Publication →</a>
+                  </div>
+
+                  <div class="research-modal-section">
+                      <h3>Key Finding</h3>
+                      <div class="research-highlight-box">
+                          <p>${study.keyFinding}</p>
+                      </div>
+                  </div>
+
+                  <div class="research-modal-section">
+                      <h3>Why This Matters for Loomi</h3>
+                      <p>${study.loomiApplication}</p>
+                  </div>
+
+                  <div class="research-modal-section">
+                      <h3>Methodology</h3>
+                      <ul>
+                          ${study.methodology.map(item => `<li>${item}</li>`).join('')}
+                      </ul>
+                  </div>
+
+                  <div class="research-modal-section">
+                      <h3>Implications</h3>
+                      <ul>
+                          ${study.implications.map(item => `<li>${item}</li>`).join('')}
+                      </ul>
+                  </div>
+              `;
+
+              modal.classList.add('active');
+          }
+
+          function closeResearchModal() {
+              document.getElementById('researchModal').classList.remove('active');
+          }
+
+          // Update your existing window.onclick to handle both modals
+          window.onclick = function(event) {
+              const waitlistModal = document.getElementById('modal');
+              const researchModal = document.getElementById('researchModal');
+
+              if (event.target === waitlistModal) {
+                  closeModal(); // Your existing function
+              }
+              if (event.target === researchModal) {
+                  closeResearchModal();
+              }
+          }
+
     </script>
+
+    <div class="research-modal" id="researchModal">
+        <div class="research-modal-content">
+            <button class="modal-close" onclick="closeResearchModal()">&times;</button>
+            <div id="researchModalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
