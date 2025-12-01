@@ -480,7 +480,7 @@
 
         /* CTA Section */
         .final-cta {
-            padding: 120px 0;
+            padding: 80px 0;
             text-align: center;
         }
 
@@ -1089,6 +1089,136 @@
             border-radius: 8px;
         }
 
+        /* ====================================================================
+           FOUNDERS STORY SECTION
+           ==================================================================== */
+
+        .founders-section {
+            padding: 60px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .founders-section .container {
+            background: rgba(102, 126, 234, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            padding: 80px 60px;
+            /* backdrop-filter: blur(15px); */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .founders-container {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Interactive Photo */
+        .founders-photo-wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        .founders-photo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(244, 164, 96, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .founders-photo:hover {
+            border-color: rgba(244, 164, 96, 0.6);
+            box-shadow: 0 25px 70px rgba(244, 164, 96, 0.2);
+        }
+
+        .photo-original,
+        .photo-stylized {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-stylized {
+            z-index: 2;
+            transition: opacity 0.8s ease;
+        }
+
+        /* Desktop hover effect */
+        @media (hover: hover) {
+            .founders-photo:hover .photo-stylized {
+                opacity: 0;
+            }
+        }
+
+        /* Mobile: toggle class instead of hover */
+        .founders-photo.revealed .photo-stylized {
+            opacity: 0;
+        }
+
+        .photo-hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #8b9dc3;
+            font-style: italic;
+        }
+
+        /* Content */
+        .founders-content h2 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .founders-subtitle {
+            font-size: 24px;
+            color: #a5b4fc;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .founders-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 20px;
+        }
+
+        .founders-content em {
+            color: #f4a460;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .founders-quote {
+            background: rgba(244, 164, 96, 0.1);
+            border-left: 4px solid #f4a460;
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .founders-quote p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #ffffff;
+            font-size: 19px;
+        }
+
+
         /* Unified Responsive Styles - Mobile & Tablet */
         @media (max-width: 768px) {
             /* Hero Section */
@@ -1201,6 +1331,38 @@
 
             .research-modal-section h3 {
                 font-size: 20px;
+            }
+
+            .founders-section {
+                padding: 60px 0;
+            }
+
+            .founders-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .founders-photo-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+
+            .founders-content h2 {
+                font-size: 36px;
+                text-align: center;
+            }
+
+            .founders-subtitle {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .founders-content p {
+                font-size: 16px;
+            }
+
+            .photo-hint {
+                font-size: 13px;
             }
         }
 
@@ -1741,6 +1903,42 @@
                     </div>
                     <h3>Rituals create predictability, trust, and easier nights</h3>
                     <p>Consistent bedtime routines establish circadian cues, helping children feel secure and making sleep transitions smoother over time</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founders Story Section -->
+        <section class="founders-section">
+            <div class="container">
+                <div class="founders-container">
+                    <!-- Left: Interactive Photo -->
+                    <div class="founders-photo-wrapper">
+                        <div class="founders-photo" id="foundersPhoto">
+                            <img src="./assets/founders-original.jpg" alt="Loomi Founders - Three Dads" class="photo-original">
+                            <img src="./assets/founders-stylized.jpg" alt="Loomi Founders Illustration" class="photo-stylized">
+                        </div>
+                        <p class="photo-hint">Hover to meet the team</p>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="founders-content">
+                        <h2>Founders Story</h2>
+                        <p class="founders-subtitle">Three Dads. One Mission.</p>
+
+                        <p>We're three dads with daughters.</p>
+
+                        <p>A neuroscientist, social scientist, and business strategist, all with backgrounds in tech, brought together by a shared question: <em>"What if technology could nurture our kids and develop their best traits—instead of distracting and exploiting them?"</em></p>
+
+                        <p>We're concerned by the rising anxiety, the shrinking attention spans, and the mounting pressures on parents to police these forces—especially on young children. So we decided to build something different.</p>
+
+                        <div class="founders-quote">
+                            <p>Loomi is our deeply intentional response: Grounded in science. Designed for calm. An app that turns bedtime into a moment of emotional and psychological development—by weaving positive affirmations into bedtime stories.</p>
+                        </div>
+
+                        <p>Helping children internalize confidence, self-worth, and emotional resilience—right before sleep, when the brain is most open to belief-building.</p>
+
+                        <p>We built this for our daughters. And now, we're sharing it with you.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2657,6 +2855,33 @@
               }
               if (event.target === researchModal) {
                   closeResearchModal();
+              }
+          }
+
+          /* ================================================================
+             FOUNDERS PHOTO INTERACTION (Mobile Tap Toggle)
+             ================================================================ */
+
+          // Only add tap functionality on touch devices
+          if ('ontouchstart' in window) {
+              const foundersPhoto = document.getElementById('foundersPhoto');
+              const photoHint = document.querySelector('.photo-hint');
+
+              if (foundersPhoto && photoHint) {
+                  // Update hint text for mobile
+                  photoHint.textContent = 'Tap to meet the team';
+
+                  // Toggle reveal on tap
+                  foundersPhoto.addEventListener('click', function() {
+                      this.classList.toggle('revealed');
+
+                      // Update hint text
+                      if (this.classList.contains('revealed')) {
+                          photoHint.textContent = 'Tap again to see illustration';
+                      } else {
+                          photoHint.textContent = 'Tap to meet the team';
+                      }
+                  });
               }
           }
 
