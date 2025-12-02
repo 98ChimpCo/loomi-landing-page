@@ -2591,7 +2591,7 @@
                 parent_name: formData.get('parent_name'),
                 email: formData.get('email'),
                 child_age: formData.get('child_age'),
-                language: formData.get('language'),
+                language: formData.get('languages'),
                 source: 'landing_page'
             };
 
@@ -2603,7 +2603,7 @@
 
             try {
                 // Send to Google Sheets
-                await fetch('https://script.google.com/macros/s/AKfycbw0jDLWYFqVPABssPq3-cxB2Nsad4buO7pYOGRQw_49t7x6ajonMWkVproXDMsv-cxEWg/exec', {
+                await fetch('https://script.google.com/macros/s/AKfycbxG2CCWwDmuUfIUe2vage_37-ACaTqRahl2-LHMsd2Ol9eYC94rDF7X_1WpQbAHH7vXog/exec', {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
