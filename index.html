@@ -9,10 +9,12 @@
     <title>Loomi - The Science of Calm & Confident Kids</title>
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VMFQHMVH6N"></script>
@@ -307,6 +309,18 @@
 
         .story-text p {
             margin-bottom: 20px;
+        }
+
+        /* Only apply flex layout to paragraphs with emoji bullets */
+        .story-text p:has(.emoji) {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .story-text p .emoji {
+            flex-shrink: 0;
+            line-height: 1.6;
         }
 
         .affirmation {
