@@ -2618,9 +2618,20 @@
            EXISTING PAGE FUNCTIONALITY
            ================================================================ */
 
-        // Generate starfield
+        // Generate starfield with responsive density
         const starfield = document.getElementById('starfield');
-        for (let i = 0; i < 200; i++) {
+
+        // Calculate star count based on viewport area to maintain constant density
+        // Desktop (1920x1080) = ~200 stars, Mobile (375x667) = ~24 stars
+        const viewportArea = window.innerWidth * window.innerHeight;
+        const baseArea = 1920 * 1080; // Reference desktop size
+        const baseStarCount = 200;
+        const starCount = Math.floor((viewportArea / baseArea) * baseStarCount);
+
+        // Minimum 15 stars, maximum 250 stars
+        const finalStarCount = Math.max(15, Math.min(250, starCount));
+
+        for (let i = 0; i < finalStarCount; i++) {
             const star = document.createElement('div');
             star.className = Math.random() > 0.9 ? 'star large' : 'star';
             star.style.left = Math.random() * 100 + '%';
