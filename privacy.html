@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Privacy Policy - Loomi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VMFQHMVH6N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VMFQHMVH6N');
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e1f;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Starfield background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(to bottom, #0a0e1f 0%, #141b2d 50%, #1a2332 100%);
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Animated gradient overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 25%, rgba(240, 147, 251, 0.03) 50%, rgba(79, 172, 254, 0.03) 75%, rgba(0, 242, 254, 0.03) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-link img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-link span {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .btn-back {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            color: #a5b4fc;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka', sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(167, 139, 250, 0.4);
+            color: #ffffff;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 40px 0 100px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            font-size: 16px;
+            color: #8b9dc3;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f4a460;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: #f4a460;
+            border-radius: 50%;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(244, 164, 96, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #f4a460;
+            font-weight: 600;
+        }
+
+        a {
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #f4a460;
+        }
+
+        .closing-note {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-style: italic;
+            color: #a5b4fc;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #a5b4fc;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+            filter: brightness(1.2);
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8b9dc3;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #f4a460;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p, li {
+                font-size: 16px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-link span {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Starfield Background -->
+    <div class="starfield" id="starfield"></div>
+    <div class="gradient-overlay"></div>
+
+    <div class="container">
+        <header>
+            <a href="./index.html" class="logo-link">
+                <img src="./favicon-32x32.png" alt="Loomi">
+                <span>Loomi</span>
+            </a>
+            <a href="./index.html" class="btn-back">Back to Home</a>
+        </header>
+
+        <main class="page-content">
+            <h1 class="page-title">Privacy Policy</h1>
+            <p class="last-updated"><strong>Last Updated:</strong> January 2026</p>
+
+            <div class="content-card">
+                <p class="intro-text">
+                    Loomi ("we," "our," or "us") is committed to protecting the privacy of children and families. This Privacy Policy explains how we handle information when you use the Loomi app.
+                </p>
+
+                <h2>Our Commitment to Children's Privacy</h2>
+                <p>
+                    Loomi is designed for children ages 0-6 and complies with the Children's Online Privacy Protection Act (COPPA) and other applicable privacy laws. <span class="highlight">We do not collect, use, or share personal information from children.</span>
+                </p>
+
+                <h2>Information We Collect</h2>
+
+                <h3>Information You Provide</h3>
+                <p>When you use Loomi, you may provide:</p>
+                <ul>
+                    <li><strong>Child's first name</strong> - Used only for personalization within the app (e.g., "Stories for Emma"). This is stored locally on your device and is never transmitted to our servers.</li>
+                    <li><strong>Child's age range</strong> - Used to filter age-appropriate content. Stored locally on your device only.</li>
+                    <li><strong>Apple ID authentication</strong> - If you sign in with Apple, we receive only the minimum information necessary to create your account (a unique identifier and, optionally, your email address if you choose to share it).</li>
+                </ul>
+
+                <h3>Information We Do NOT Collect</h3>
+                <ul>
+                    <li>We do <strong>not</strong> collect children's personal information</li>
+                    <li>We do <strong>not</strong> collect location data</li>
+                    <li>We do <strong>not</strong> collect photos, videos, or voice recordings</li>
+                    <li>We do <strong>not</strong> use analytics that track individual children</li>
+                    <li>We do <strong>not</strong> use cookies or similar tracking technologies</li>
+                </ul>
+
+                <h2>How We Use Information</h2>
+                <p>The limited information we receive is used solely to:</p>
+                <ul>
+                    <li>Personalize the app experience (displaying your child's name, filtering stories by age)</li>
+                    <li>Manage your account and subscription</li>
+                    <li>Provide customer support when you contact us</li>
+                </ul>
+
+                <h2>Data Storage</h2>
+                <ul>
+                    <li><strong>Local Storage:</strong> Child profile information (name and age) is stored exclusively on your device</li>
+                    <li><strong>No Cloud Sync of Child Data:</strong> We do not upload or sync children's information to any servers</li>
+                    <li><strong>Audio Content:</strong> Story audio files may be downloaded to your device for offline playback</li>
+                </ul>
+
+                <h2>Third-Party Services</h2>
+                <p>Loomi uses the following third-party services:</p>
+                <ul>
+                    <li><strong>Apple Sign-In</strong> - For secure authentication</li>
+                    <li><strong>Apple App Store</strong> - For processing purchases and subscriptions</li>
+                </ul>
+                <p>We do not use third-party advertising, analytics that track children, or social media integrations.</p>
+
+                <h2>Data Sharing</h2>
+                <p>
+                    We do <strong>not</strong> sell, trade, or share personal information with third parties for marketing purposes. We may share information only:
+                </p>
+                <ul>
+                    <li>When required by law</li>
+                    <li>To protect the safety of our users</li>
+                    <li>With service providers who assist in operating our app (under strict confidentiality agreements)</li>
+                </ul>
+
+                <h2>Parental Rights</h2>
+                <p>As a parent or guardian, you have the right to:</p>
+                <ul>
+                    <li>Review any personal information we hold about your account</li>
+                    <li>Request deletion of your account and associated data</li>
+                    <li>Opt out of any future communications</li>
+                </ul>
+                <p>To exercise these rights, contact us at <a href="mailto:privacy@loomi.kids">privacy@loomi.kids</a></p>
+
+                <h2>Data Retention</h2>
+                <ul>
+                    <li>Account information is retained while your account is active</li>
+                    <li>You may delete your account at any time through the app settings or by contacting us</li>
+                    <li>Upon account deletion, all associated data is permanently removed</li>
+                </ul>
+
+                <h2>Security</h2>
+                <p>
+                    We implement industry-standard security measures to protect any information we handle. Child profile data stored locally on your device is protected by your device's built-in security features.
+                </p>
+
+                <h2>Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy in the app and updating the "Last Updated" date.
+                </p>
+
+                <h2>Contact Us</h2>
+                <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:privacy@loomi.kids">privacy@loomi.kids</a><br>
+                    <strong>Website:</strong> <a href="https://loomi.kids">https://loomi.kids</a>
+                </p>
+
+                <p class="closing-note">
+                    Loomi is committed to creating a safe, enriching bedtime experience for children and peace of mind for parents.
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="shared-footer"></footer>
+    </div>
+    <script src="./components/footer.js"></script>
+
+    <script>
+        // Create starfield
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const baseStarCount = 100;
+            const scaleFactor = (width * height) / (1920 * 1080);
+            const starCount = Math.floor(baseStarCount * Math.max(0.5, Math.min(1.5, scaleFactor)));
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star' + (Math.random() > 0.9 ? ' large' : '');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
+                star.style.setProperty('--delay', Math.random() * 5 + 's');
+                starfield.appendChild(star);
+            }
+        }
+        createStarfield();
+    </script>
+</body>
+</html>

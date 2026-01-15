@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Terms of Service - Loomi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VMFQHMVH6N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VMFQHMVH6N');
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e1f;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* Starfield background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(to bottom, #0a0e1f 0%, #141b2d 50%, #1a2332 100%);
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Animated gradient overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 25%, rgba(240, 147, 251, 0.03) 50%, rgba(79, 172, 254, 0.03) 75%, rgba(0, 242, 254, 0.03) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-link img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-link span {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .btn-back {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            color: #a5b4fc;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka', sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(167, 139, 250, 0.4);
+            color: #ffffff;
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 40px 0 100px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            font-size: 16px;
+            color: #8b9dc3;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f4a460;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: #f4a460;
+            border-radius: 50%;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: rgba(244, 164, 96, 0.15);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #f4a460;
+            font-weight: 600;
+        }
+
+        a {
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #f4a460;
+        }
+
+        .legal-notice {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 12px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #a5b4fc;
+        }
+
+        .closing-note {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-style: italic;
+            color: #a5b4fc;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #a5b4fc;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+            filter: brightness(1.2);
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8b9dc3;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #f4a460;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p, li {
+                font-size: 16px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-link span {
+                font-size: 20px;
+            }
+
+            .legal-notice {
+                padding: 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Starfield Background -->
+    <div class="starfield" id="starfield"></div>
+    <div class="gradient-overlay"></div>
+
+    <div class="container">
+        <header>
+            <a href="./index.html" class="logo-link">
+                <img src="./favicon-32x32.png" alt="Loomi">
+                <span>Loomi</span>
+            </a>
+            <a href="./index.html" class="btn-back">Back to Home</a>
+        </header>
+
+        <main class="page-content">
+            <h1 class="page-title">End User License Agreement (EULA)</h1>
+            <p class="last-updated"><strong>Last Updated:</strong> January 2026</p>
+
+            <div class="content-card">
+                <p class="intro-text">
+                    Please read this End User License Agreement ("Agreement") carefully before using the Loomi app.
+                </p>
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>
+                    By downloading, installing, or using Loomi ("the App"), you agree to be bound by this Agreement. If you do not agree to these terms, do not use the App.
+                </p>
+                <p>
+                    If you are using the App on behalf of a minor child, you represent that you are the parent or legal guardian and accept this Agreement on behalf of yourself and your child.
+                </p>
+
+                <h2>2. License Grant</h2>
+                <p>Subject to your compliance with this Agreement, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+                <ul>
+                    <li>Download and install the App on devices you own or control</li>
+                    <li>Use the App for personal, non-commercial purposes</li>
+                </ul>
+
+                <h2>3. Restrictions</h2>
+                <p>You agree NOT to:</p>
+                <ul>
+                    <li>Copy, modify, or distribute the App or its content</li>
+                    <li>Reverse engineer, decompile, or disassemble the App</li>
+                    <li>Remove any copyright, trademark, or proprietary notices</li>
+                    <li>Use the App for any commercial purpose without authorization</li>
+                    <li>Share your account credentials with others</li>
+                    <li>Circumvent any access controls or usage limits</li>
+                    <li>Use the App in any way that violates applicable laws</li>
+                </ul>
+
+                <h2>4. Content Ownership</h2>
+
+                <h3>Our Content</h3>
+                <p>
+                    All stories, narrations, music, artwork, and other content in the App ("Loomi Content") are owned by Loomi or our licensors and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works from Loomi Content without our written permission.
+                </p>
+
+                <h3>Your Use</h3>
+                <p>
+                    You may use Loomi Content solely for personal, non-commercial purposes through the App. Downloaded content for offline use remains subject to this Agreement.
+                </p>
+
+                <h2>5. Subscriptions and Purchases</h2>
+
+                <h3>In-App Purchases</h3>
+                <p>
+                    The App may offer subscriptions or one-time purchases. All purchases are processed through the Apple App Store and are subject to Apple's terms and conditions.
+                </p>
+
+                <h3>Refunds</h3>
+                <p>
+                    Refund requests must be directed to Apple, as they process all payments. We do not have access to your payment information.
+                </p>
+
+                <h3>Price Changes</h3>
+                <p>
+                    We reserve the right to change subscription prices. You will be notified of any price changes before your next billing cycle.
+                </p>
+
+                <h2>6. Account Termination</h2>
+                <p>We may suspend or terminate your access to the App if you:</p>
+                <ul>
+                    <li>Violate this Agreement</li>
+                    <li>Engage in fraudulent or illegal activity</li>
+                    <li>Abuse or misuse the App</li>
+                </ul>
+                <p>You may delete your account at any time through the App settings.</p>
+
+                <h2>7. Disclaimer of Warranties</h2>
+                <div class="legal-notice">
+                    THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED. WE DO NOT WARRANT THAT:
+                    <ul>
+                        <li>The App will be uninterrupted or error-free</li>
+                        <li>The App will meet your specific requirements</li>
+                        <li>Any content will achieve particular results for your child</li>
+                    </ul>
+                    Loomi is designed as a bedtime story and relaxation tool. It is not a medical device and is not intended to diagnose, treat, or cure any condition.
+                </div>
+
+                <h2>8. Limitation of Liability</h2>
+                <div class="legal-notice">
+                    TO THE MAXIMUM EXTENT PERMITTED BY LAW, LOOMI SHALL NOT BE LIABLE FOR:
+                    <ul>
+                        <li>Any indirect, incidental, special, or consequential damages</li>
+                        <li>Loss of data, profits, or goodwill</li>
+                        <li>Any damages exceeding the amount you paid for the App in the 12 months preceding the claim</li>
+                    </ul>
+                </div>
+
+                <h2>9. Indemnification</h2>
+                <p>You agree to indemnify and hold harmless Loomi and its officers, directors, employees, and agents from any claims, damages, or expenses arising from:</p>
+                <ul>
+                    <li>Your use of the App</li>
+                    <li>Your violation of this Agreement</li>
+                    <li>Your violation of any third-party rights</li>
+                </ul>
+
+                <h2>10. Children's Safety</h2>
+                <p>
+                    Loomi is designed for children ages 0-6. We are committed to providing safe, age-appropriate content. All stories and affirmations are reviewed for child appropriateness. The App contains:
+                </p>
+                <ul>
+                    <li>No advertisements</li>
+                    <li>No in-app purchases accessible to children</li>
+                    <li>No external links</li>
+                    <li>No social features or user-generated content</li>
+                </ul>
+
+                <h2>11. Privacy</h2>
+                <p>
+                    Your use of the App is also governed by our Privacy Policy, available at <a href="./privacy.html">https://loomi.kids/privacy</a>. Please review it carefully.
+                </p>
+
+                <h2>12. Updates</h2>
+                <p>
+                    We may update the App from time to time. Some updates may be required for continued use. We are not obligated to provide updates, support, or maintenance.
+                </p>
+
+                <h2>13. Governing Law</h2>
+                <p>
+                    This Agreement is governed by the laws of Canada, without regard to conflict of law principles. Any disputes shall be resolved in the courts of British Columbia, Canada.
+                </p>
+
+                <h2>14. Changes to This Agreement</h2>
+                <p>
+                    We may modify this Agreement at any time. Continued use of the App after changes constitutes acceptance of the modified terms. Material changes will be communicated through the App or via email.
+                </p>
+
+                <h2>15. Severability</h2>
+                <p>
+                    If any provision of this Agreement is found unenforceable, the remaining provisions will continue in full force and effect.
+                </p>
+
+                <h2>16. Entire Agreement</h2>
+                <p>
+                    This Agreement, together with our Privacy Policy, constitutes the entire agreement between you and Loomi regarding the App.
+                </p>
+
+                <h2>17. Contact Us</h2>
+                <p>For questions about this Agreement, please contact us:</p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:support@loomi.kids">support@loomi.kids</a><br>
+                    <strong>Website:</strong> <a href="https://loomi.kids">https://loomi.kids</a>
+                </p>
+
+                <p class="closing-note">
+                    By using Loomi, you acknowledge that you have read, understood, and agree to be bound by this Agreement.
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="shared-footer"></footer>
+    </div>
+    <script src="./components/footer.js"></script>
+
+    <script>
+        // Create starfield
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const baseStarCount = 100;
+            const scaleFactor = (width * height) / (1920 * 1080);
+            const starCount = Math.floor(baseStarCount * Math.max(0.5, Math.min(1.5, scaleFactor)));
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star' + (Math.random() > 0.9 ? ' large' : '');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
+                star.style.setProperty('--delay', Math.random() * 5 + 's');
+                starfield.appendChild(star);
+            }
+        }
+        createStarfield();
+    </script>
+</body>
+</html>

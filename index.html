@@ -549,6 +549,25 @@
             filter: brightness(1.2);  /* Makes it slightly brighter */
         }
 
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8b9dc3;
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f4a460;
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -2031,11 +2050,9 @@
         </section>
 
         <!-- Footer -->
-        <footer>
-            <p><img src="/favicon-32x32.png" alt="Loomi"> Loomi - The science of calm & confident kids</p>
-            <p style="margin-top: 10px; font-size: 14px;">© 2025 Loomi. Built with ❤️ by 3 brothers and dads for thoughtful parents seeking peaceful bedtimes for their children.</p>
-        </footer>
+        <footer id="shared-footer"></footer>
     </div>
+    <script src="./components/footer.js"></script>
 
     <!-- Modal -->
     <div class="modal" id="modal">
