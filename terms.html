@@ -42,6 +42,13 @@
             font-weight: 400;
         }
 
+        /* App mode - hide navigation when viewed in mobile app */
+        body.app-mode header,
+        body.app-mode footer,
+        body.app-mode nav {
+            display: none !important;
+        }
+
         /* Starfield background */
         .starfield {
             position: fixed;
@@ -528,6 +535,11 @@
     <script src="./components/footer.js"></script>
 
     <script>
+        // Detect app mode from query parameter
+        if (new URLSearchParams(window.location.search).has('app')) {
+            document.body.classList.add('app-mode');
+        }
+
         // Create starfield
         function createStarfield() {
             const starfield = document.getElementById('starfield');
