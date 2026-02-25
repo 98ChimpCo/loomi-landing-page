@@ -31,6 +31,10 @@
         var ua = navigator.userAgent || "";
         if (/iPhone|iPad|iPod/.test(ua)) {
             window.location.replace(TESTFLIGHT_LINK);
+            // After TestFlight opens, redirect this tab to the homepage
+            setTimeout(function() {
+                window.location.replace("https://www.loomi.kids");
+            }, 2000);
         }
     </script>
 
