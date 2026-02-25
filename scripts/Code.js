@@ -4,8 +4,8 @@
 // Updated: Feb 2026 - Single-email flow with public TestFlight link
 // ============================================
 
-// Public TestFlight link (manage in App Store Connect → TestFlight → Public Link)
-var TESTFLIGHT_PUBLIC_LINK = "https://testflight.apple.com/join/wGsgedpD";
+// Install page handles device detection and redirects iOS to TestFlight
+var TESTFLIGHT_PUBLIC_LINK = "https://www.loomi.kids/install";
 
 // Handle form submissions from landing page
 function doPost(e) {
