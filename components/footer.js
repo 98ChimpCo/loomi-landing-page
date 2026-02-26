@@ -11,6 +11,7 @@ function renderFooter() {
         <div class="footer-links">
             <a href="./privacy.html">Privacy Policy</a>
             <a href="./terms.html">Terms of Service</a>
+            <a href="https://www.98chimp.ca" target="_blank" rel="noopener">Built by 98%Chimp</a>
         </div>
     `;
 }
