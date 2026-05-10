@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Loomi - The Science of Calm & Confident Kids</title>
+    <title>Loomi - Bedtime stories that build confidence from the inside out</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -323,6 +323,25 @@
             line-height: 1.6;
         }
 
+        .story-text .emoji svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: -3px;
+        }
+
+        .story-column.regular .story-text .emoji svg {
+            stroke: #94a3b8;
+            opacity: 0.7;
+        }
+
+        .story-column.loomi .story-text .emoji svg {
+            stroke: #f4a460;
+        }
+
         .affirmation {
             font-weight: 600;
             color: #f4a460;
@@ -455,6 +474,345 @@
             content: "✨";
             flex-shrink: 0;
             line-height: 1.6;
+        }
+
+        /* ============================================================
+           index2.html additions: Band A (How Loomi feels) + Band B (Built fair for parents)
+           Reuses existing patterns; new classes only where existing ones don't fit.
+           ============================================================ */
+
+        /* Band A wrapper */
+        .feels-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .feels-block {
+            margin-top: 100px;
+            text-align: left;
+        }
+
+        .feels-block:first-of-type {
+            margin-top: 60px;
+        }
+
+        .feels-block-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .feels-block-header h3 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .feels-block-header p {
+            font-size: 19px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .feels-two-up {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feels-image {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .feels-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .feels-image.framed {
+            background: transparent;
+            box-shadow: none;
+            text-align: center;
+            border-radius: 0;
+            overflow: visible;
+        }
+
+        .feels-image.framed img {
+            max-width: 280px;
+            margin: 0 auto;
+            border-radius: 36px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(167, 139, 250, 0.15);
+        }
+
+        .feels-copy h4 {
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            color: #ffffff;
+            line-height: 1.25;
+        }
+
+        .feels-copy > p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #a5b4fc;
+            margin-bottom: 28px;
+        }
+
+        .feels-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feels-bullets li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 18px;
+            color: #a5b4fc;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .feels-bullets li:last-child {
+            margin-bottom: 0;
+        }
+
+        .feels-bullets .feels-bullet-icon {
+            flex-shrink: 0;
+            width: 30px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feels-bullets .feels-bullet-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #f4a460;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .feels-bullets li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Voice grid */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .voice-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .voice-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(167, 139, 250, 0.4);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .voice-portrait {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            object-fit: cover;
+            background: radial-gradient(circle at 50% 35%, rgba(167, 139, 250, 0.18), rgba(10, 14, 31, 1) 70%);
+            border: 1px solid rgba(167, 139, 250, 0.15);
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .voice-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .voice-archetype {
+            font-size: 12px;
+            font-weight: 500;
+            color: #f4a460;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .voice-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #a5b4fc;
+        }
+
+        .voice-coming-soon {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #f4a460;
+            background: rgba(244, 164, 96, 0.12);
+            border: 1px solid rgba(244, 164, 96, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            z-index: 2;
+        }
+
+        .voice-card.coming-soon .voice-portrait {
+            opacity: 0.65;
+        }
+
+        /* Band B - Built Fair for Parents */
+        .built-fair-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .built-fair-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 60px;
+            text-align: left;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fair-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .fair-card h3 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 14px;
+        }
+
+        .fair-card > p {
+            font-size: 17px;
+            color: #a5b4fc;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .fair-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fair-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: #a5b4fc;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .fair-checklist li:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .fair-checklist .check {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .fair-checklist .check svg {
+            width: 20px;
+            height: 20px;
+            stroke: #f4a460;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .fair-checklist li strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .fair-footnote {
+            margin-top: 36px;
+            text-align: center;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .fair-footnote a {
+            color: #a5b4fc;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .fair-footnote a:hover {
+            color: #f4a460;
+        }
+
+        @media (max-width: 1100px) {
+            .voice-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .feels-two-up { grid-template-columns: 1fr; gap: 36px; }
+            .feels-two-up .feels-image { order: -1; }
+            .built-fair-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .feels-section, .built-fair-section { padding: 60px 0; }
+            .feels-block { margin-top: 70px; }
+            .feels-block-header h3 { font-size: 28px; }
+            .feels-block-header p { font-size: 17px; }
+            .feels-copy h4 { font-size: 24px; }
+            .voice-grid { grid-template-columns: 1fr; }
+            .fair-card { padding: 28px 24px; }
         }
 
         /* Galaxy Banner Section */
@@ -1487,7 +1845,7 @@
 
             <div class="hero-badge" style="visibility: hidden;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
-                Neuroscience Meets Parenting
+                Built for bedtime, rooted in research
             </div>
 
             <h1 class="hero-title"></h1>
@@ -1495,7 +1853,7 @@
             <div class="hero-badges">
                 <span class="badge">Crafted by parents</span>
                 <span class="badge-separator">|</span>
-                <span class="badge">Rooted in neuroscience</span>
+                <span class="badge">Rooted in research</span>
                 <span class="badge-separator">|</span>
                 <span class="badge">Loved at bedtime</span>
             </div>
@@ -1579,10 +1937,10 @@
                       </svg>
                   </h3>
                   <div class="story-text">
-                        <p><span class="emoji">❌</span>just another stroy app</p>
-                        <p><span class="emoji">❌</span>high stimulation screen time</p>
-                        <p><span class="emoji">❌</span>stories that entertain</p>
-                        <p><span class="emoji">❌</span>soothing sounds</p>
+                        <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>just another stroy app</p>
+                        <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>high stimulation screen time</p>
+                        <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>stories that entertain</p>
+                        <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>soothing sounds</p>
                     </div>
               </div>
 
@@ -1595,10 +1953,10 @@
                       </svg>
                   </h3>
                   <div class="story-text">
-                      <p><span class="emoji">✅</span>a developmental tool for confidence & curiosity</p>
-                      <p><span class="emoji">✅</span>low stimulation rest and imagination time</p>
-                      <p><span class="emoji">✅</span>stories that cultivate character</p>
-                      <p><span class="emoji">✅</span>science-backed affirmations to build cognitive strength</p>
+                      <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>a developmental tool for confidence & curiosity</p>
+                      <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>low stimulation rest and imagination time</p>
+                      <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>stories that cultivate character</p>
+                      <p><span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>affirmations woven into every story to build confidence</p>
 
                   </div>
               </div>
@@ -1661,6 +2019,132 @@
                             <li>Emotional resilience</li>
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             BAND A: How Loomi feels (UX/UI: Dream Mode, Play Screen, Voices)
+             Added in index2.html. English-only for now; move to LANGUAGES
+             object for full i18n later.
+             ============================================================ -->
+        <section class="feels-section">
+            <h2 class="section-title">How Loomi feels in your home</h2>
+
+            <!-- A1. Dream Mode -->
+            <div class="feels-block">
+                <div class="feels-two-up">
+                    <div class="feels-image">
+                        <img src="./assets/dream-mode.jpg"
+                             alt="Parent and child silhouette in soft moonlight, listening together"
+                             onerror="this.onerror=null;this.src='./assets/parent-reading-moon.jpg';">
+                    </div>
+                    <div class="feels-copy">
+                        <h4>Dream Mode … built for the dark</h4>
+                        <p>Loomi doesn't ask kids to look at a screen at bedtime. It asks them to listen.</p>
+                        <ul class="feels-bullets">
+                            <li>
+                                <span class="feels-bullet-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
+                                </span>
+                                <span><strong>Audio first.</strong> No animations, no flashing colours … just narration and music.</span>
+                            </li>
+                            <li>
+                                <span class="feels-bullet-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                                </span>
+                                <span><strong>Low blue light.</strong> A deep navy interface that respects melatonin and the nervous system.</span>
+                            </li>
+                            <li>
+                                <span class="feels-bullet-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+                                </span>
+                                <span><strong>Low stimulation.</strong> No scrolling feeds, no leaderboards, no streaks … nothing that pulls a child back in.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A2. Simplified play screen -->
+            <div class="feels-block">
+                <div class="feels-two-up">
+                    <div class="feels-copy">
+                        <h4>One screen. One button. Then darkness.</h4>
+                        <p>Once the story starts, you put the phone down. No timeline scrubber to fidget with, no end-of-episode autoplay prompt, no "you might also like" rail. The play screen does one thing well, then gets out of the way.</p>
+                        <ul class="feels-bullets">
+                            <li>
+                                <span class="feels-bullet-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                                </span>
+                                <span><strong>Story title.</strong> So you know what's playing without squinting.</span>
+                            </li>
+                            <li>
+                                <span class="feels-bullet-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                                </span>
+                                <span><strong>A single play button.</strong> No menus, no decisions to make at 8pm.</span>
+                            </li>
+                            <li>
+                                <span class="feels-bullet-icon" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H4a2 2 0 0 1-2-2V5c0-1.5 1-2 1-2"/><path d="M22 15V5a2 2 0 0 0-2-2H9"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m2 2 20 20"/></svg>
+                                </span>
+                                <span><strong>Gentle dim-to-black.</strong> The screen fades out a few seconds in, leaving only the audio.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feels-image framed">
+                        <img src="./assets/play-screen.gif" alt="Loomi's simplified play screen on iPhone">
+                    </div>
+                </div>
+            </div>
+
+            <!-- A3. Voices that feel like family -->
+            <div class="feels-block">
+                <div class="feels-block-header">
+                    <h3>Voices that feel like family</h3>
+                    <p>Children attach to voices. We narrate every Loomi story in a familiar voice from a child's life … the people who already make bedtime feel safe.</p>
+                </div>
+
+                <div class="voice-grid">
+                    <div class="voice-card">
+                        <img class="voice-portrait" src="./assets/voices/natasha.jpg"
+                             alt="Natasha … the Mom voice"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1 1%22&gt;&lt;/svg&gt;';">
+                        <div class="voice-name">Natasha</div>
+                        <div class="voice-archetype">The Mom voice</div>
+                        <div class="voice-description">Warm, unhurried … the voice that knows when to slow down.</div>
+                    </div>
+
+                    <div class="voice-card">
+                        <img class="voice-portrait" src="./assets/voices/dr-z.jpg"
+                             alt="Dr Z … the Dad voice"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1 1%22&gt;&lt;/svg&gt;';">
+                        <div class="voice-name">Dr Z</div>
+                        <div class="voice-archetype">The Dad voice</div>
+                        <div class="voice-description">Steady, curious … the voice that makes the world feel figureoutable.</div>
+                    </div>
+
+                    <div class="voice-card coming-soon">
+                        <span class="voice-coming-soon">Coming soon</span>
+                        <img class="voice-portrait" src="./assets/voices/grandma.jpg"
+                             alt="The Grandma voice … coming soon"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1 1%22&gt;&lt;/svg&gt;';">
+                        <div class="voice-name">Grandma</div>
+                        <div class="voice-archetype">The keeper of stories</div>
+                        <div class="voice-description">The one who's told this one a hundred times … and still tells it like it's new.</div>
+                    </div>
+
+                    <div class="voice-card coming-soon">
+                        <span class="voice-coming-soon">Coming soon</span>
+                        <img class="voice-portrait" src="./assets/voices/grandpa.jpg"
+                             alt="The Grandpa voice … coming soon"
+                             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1 1%22&gt;&lt;/svg&gt;';">
+                        <div class="voice-name">Grandpa</div>
+                        <div class="voice-archetype">The patient explainer</div>
+                        <div class="voice-description">The one who answers every question without making it feel like a question.</div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -2007,6 +2491,76 @@
             </div>
         </section>
 
+        <!-- ============================================================
+             BAND B: Built fair for parents (Trust: Pricing + Privacy)
+             Added in index2.html. Answers parent objections from beta
+             testing before the founders' story.
+             ============================================================ -->
+        <section class="built-fair-section">
+            <h2 class="section-title">Built fair for parents</h2>
+            <p class="comparison-header" style="max-width:780px;margin:0 auto;font-size:19px;color:#cbd5e1;line-height:1.6;">No tricks, no auto-upgrades, no guilt trips … just two promises a parent should never have to ask for.</p>
+
+            <div class="built-fair-grid">
+                <!-- B1. Pricing -->
+                <div class="fair-card">
+                    <h3>Pricing that respects you</h3>
+                    <p>Try Loomi free for two weeks … then choose what makes sense for your family.</p>
+                    <ul class="fair-checklist">
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Two weeks free.</strong> Full access to every story and voice.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Monthly or annual.</strong> Pay as you go, or save with a yearly plan … your call, never ours.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Never auto-upgraded.</strong> Your monthly plan stays monthly … forever, unless you say otherwise.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Free tier always available.</strong> If life happens and you cancel, a curated set of stories stays open for your child.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Refunds, no questions asked.</strong> Email us. Done.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- B2. Privacy -->
+                <div class="fair-card">
+                    <h3>Privacy by default</h3>
+                    <p>Loomi was built for kids. That changes how we treat data … and what we refuse to do.</p>
+                    <ul class="fair-checklist">
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Ad-free, forever.</strong> No banners, no pre-rolls, no "sponsored stories."</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>No third-party advertisers.</strong> Your child is not a data point we sell.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>No tracking pixels.</strong> We don't follow you around the internet.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Your data, your call.</strong> Delete your account anytime … we erase it all.</span>
+                        </li>
+                        <li>
+                            <span class="check" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+                            <span><strong>Built to children's privacy law.</strong> Loomi meets COPPA, GDPR-K, and Quebec's Law 25 as a baseline … not a roadmap item.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="fair-footnote">Read the full <a href="./privacy.html">Privacy Policy</a> and <a href="./terms.html">Terms of Service</a>.</p>
+        </section>
+
         <!-- Founders Story Section -->
         <section class="founders-section">
             <div class="container">
@@ -2102,10 +2656,10 @@
             en: {
                 // Hero Section
                 hero: {
-                    title: "Science-backed bedtime stories woven with positive affirmations for children aged 0-6.",
+                    title: "Bedtime stories that build children's confidence from the inside out.",
                     badges: [
                         "Crafted by parents",
-                        "Rooted in neuroscience",
+                        "Rooted in research",
                         "Loved at bedtime"
                     ],
                     ctaButton: "Join Early Access"
@@ -2132,7 +2686,7 @@
                             "a developmental tool for confidence & curiosity",
                             "low stimulation rest and imagination time",
                             "stories that cultivate character",
-                            "science-backed affirmations to build cognitive strength"
+                            "affirmations woven into every story to build confidence"
                         ]
                     }
                 },
@@ -2519,7 +3073,7 @@
                     if (content.comparison.otherApps.items) {
                         content.comparison.otherApps.items.forEach((text, i) => {
                             if (paragraphs[i]) {
-                                paragraphs[i].innerHTML = `<span class="emoji">❌</span>${text}`;
+                                paragraphs[i].innerHTML = `<span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>${text}`;
                             }
                         });
                     }
@@ -2541,7 +3095,7 @@
                     if (content.comparison.loomiApp.items) {
                         content.comparison.loomiApp.items.forEach((text, i) => {
                             if (paragraphs[i]) {
-                                paragraphs[i].innerHTML = `<span class="emoji">✅</span>${text}`;
+                                paragraphs[i].innerHTML = `<span class="emoji" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>${text}`;
                             }
                         });
                     }
