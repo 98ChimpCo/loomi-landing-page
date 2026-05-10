@@ -1853,6 +1853,7 @@
             </div>
 
             <h1 class="hero-title"></h1>
+            <p class="hero-subtitle hero-tagline"></p>
 
             <div class="hero-badges">
                 <span class="badge">Crafted by parents</span>
@@ -2663,7 +2664,8 @@
             en: {
                 // Hero Section
                 hero: {
-                    title: "Bedtime stories that build children's confidence from the inside out.",
+                    title: "Loomi helps parents turn bedtime into a daily ritual for building their child's inner voice.",
+                    tagline: "Bedtime stories that build children's confidence from the inside out.",
                     badges: [
                         "Crafted by parents",
                         "Rooted in research",
@@ -3036,6 +3038,11 @@
             const heroTitle = document.querySelector('.hero-title');
             if (heroTitle && content.hero && content.hero.title) {
                 heroTitle.textContent = content.hero.title;
+            }
+
+            const heroTagline = document.querySelector('.hero-tagline');
+            if (heroTagline && content.hero && content.hero.tagline) {
+                heroTagline.textContent = content.hero.tagline;
             }
 
             const badges = document.querySelectorAll('.hero-badges .badge');
