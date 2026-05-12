@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Support - Loomi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VMFQHMVH6N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VMFQHMVH6N');
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e1f;
+            color: #ffffff;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        /* App mode - hide navigation when viewed in mobile app */
+        body.app-mode header,
+        body.app-mode footer,
+        body.app-mode nav {
+            display: none !important;
+        }
+
+        /* Starfield background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(to bottom, #0a0e1f 0%, #141b2d 50%, #1a2332 100%);
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        .star.large {
+            width: 3px;
+            height: 3px;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Animated gradient overlay */
+        .gradient-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 25%, rgba(240, 147, 251, 0.03) 50%, rgba(79, 172, 254, 0.03) 75%, rgba(0, 242, 254, 0.03) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 1;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
+
+        .logo-link img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-link span {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .btn-back {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
+            color: #a5b4fc;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka', sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(167, 139, 250, 0.4);
+            color: #ffffff;
+        }
+
+        .page-content {
+            padding: 40px 0 100px;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .last-updated {
+            font-size: 16px;
+            color: #8b9dc3;
+            margin-bottom: 40px;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f4a460;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #c7d2fe;
+            margin-bottom: 10px;
+            padding-left: 28px;
+            position: relative;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: #f4a460;
+            border-radius: 50%;
+        }
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        a {
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #f4a460;
+        }
+
+        .contact-card {
+            background: rgba(167, 139, 250, 0.08);
+            border: 1px solid rgba(167, 139, 250, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .contact-card a {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 20px;
+            color: #a78bfa;
+            font-weight: 500;
+        }
+
+        .response-note {
+            font-size: 15px;
+            color: #8b9dc3;
+            margin-top: 10px;
+        }
+
+        .closing-note {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-style: italic;
+            color: #a5b4fc;
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #a5b4fc;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 8px;
+            filter: brightness(1.2);
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8b9dc3;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #f4a460;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 36px;
+            }
+
+            .content-card {
+                padding: 30px 20px;
+            }
+
+            .contact-card {
+                padding: 24px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p, li {
+                font-size: 16px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-link span {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Starfield Background -->
+    <div class="starfield" id="starfield"></div>
+    <div class="gradient-overlay"></div>
+
+    <div class="container">
+        <header>
+            <a href="./index.html" class="logo-link">
+                <img src="./favicon-32x32.png" alt="Loomi">
+                <span>Loomi</span>
+            </a>
+            <a href="./index.html" class="btn-back">Back to Home</a>
+        </header>
+
+        <main class="page-content">
+            <h1 class="page-title">Support</h1>
+            <p class="last-updated"><strong>Last Updated:</strong> May 2026</p>
+
+            <div class="content-card">
+                <p class="intro-text">
+                    Need help with Loomi? We're a small team of three dads building the app we wanted for our own kids ... we read every message and reply personally.
+                </p>
+
+                <div class="contact-card">
+                    <h3>Get in touch</h3>
+                    <a href="mailto:support@loomi.kids">support@loomi.kids</a>
+                    <p class="response-note">We aim to reply within one business day.</p>
+                </div>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>How does Loomi work?</h3>
+                <p>
+                    Loomi is an audio-first bedtime story app for children ages 0–6. You pick a story, your child listens to it narrated over a soft lullaby melody, and when the story ends the melody continues until the sleep timer runs out. The phone is meant to go face-down ... there's nothing visual to engage with after you press play.
+                </p>
+
+                <h3>Why don't I see a screen during playback?</h3>
+                <p>
+                    That's intentional. Loomi is built around our core promise: <strong>start and forget</strong>. Once a story is playing you can place the phone face-down and Loomi takes care of the rest. The dim Dream Mode interface is designed to keep light out of your child's room.
+                </p>
+
+                <h3>How do subscriptions work?</h3>
+                <p>
+                    Loomi offers two subscription plans through the App Store:
+                </p>
+                <ul>
+                    <li><strong>Loomi Monthly</strong> — billed monthly, cancel anytime</li>
+                    <li><strong>Loomi Annual</strong> — billed yearly, best value</li>
+                </ul>
+                <p>
+                    Both plans start with a <strong>14-day free trial</strong>. You can cancel anytime in your iPhone Settings → Apple Account → Subscriptions before the trial ends and you won't be charged.
+                </p>
+                <p>
+                    Subscriptions are managed entirely through the App Store. Loomi does not store payment information.
+                </p>
+
+                <h3>How do I cancel my subscription?</h3>
+                <ol style="list-style: decimal; padding-left: 30px; color: #c7d2fe;">
+                    <li style="padding-left: 0;">Open the <strong>Settings</strong> app on your iPhone</li>
+                    <li style="padding-left: 0;">Tap your name at the top to open your Apple Account</li>
+                    <li style="padding-left: 0;">Tap <strong>Subscriptions</strong></li>
+                    <li style="padding-left: 0;">Tap <strong>Loomi</strong></li>
+                    <li style="padding-left: 0;">Tap <strong>Cancel Subscription</strong></li>
+                </ol>
+
+                <h3>How do I restore my subscription on a new device?</h3>
+                <p>
+                    Sign in to the new device with the same Apple ID, install Loomi, then open <strong>Settings → Restore Purchases</strong> inside the app. Your subscription will reactivate automatically.
+                </p>
+
+                <h3>How do I delete my account?</h3>
+                <p>
+                    Inside the app, open <strong>Settings → Account → Delete Account</strong>. This permanently removes your account and all associated data. If you also have an active subscription, cancel it via your iPhone Settings → Apple Account → Subscriptions before deleting your account.
+                </p>
+                <p>
+                    Prefer email? Write to us at <a href="mailto:privacy@loomi.kids">privacy@loomi.kids</a> and we'll handle the deletion within 7 days.
+                </p>
+
+                <h3>Stories aren't downloading or playing</h3>
+                <ul>
+                    <li>Check your internet connection ... downloads require Wi-Fi or cellular data</li>
+                    <li>Make sure your device has enough free storage (each story is approx. 3–5 MB)</li>
+                    <li>Try force-quitting Loomi and reopening it</li>
+                    <li>If the issue persists, email <a href="mailto:support@loomi.kids">support@loomi.kids</a> with your iPhone model and iOS version</li>
+                </ul>
+
+                <h3>My child's profile disappeared</h3>
+                <p>
+                    Profile data is stored on your device. If you signed out, reinstalled the app, or restored from an iCloud backup that pre-dated profile creation, you may need to re-add the profile. We don't sync profile data across devices to protect your child's privacy.
+                </p>
+
+                <h3>Can I use Loomi on iPad?</h3>
+                <p>
+                    Loomi is currently designed for iPhone. You can install it on iPad and run in compatibility mode, but the experience is optimised for iPhone. Native iPad support may come in a future release.
+                </p>
+
+                <h3>Is Loomi safe for my child?</h3>
+                <p>
+                    Yes. Loomi is built for kids, with a strict privacy stance:
+                </p>
+                <ul>
+                    <li>We do <strong>not</strong> collect personal information from children</li>
+                    <li>There are <strong>no ads</strong></li>
+                    <li>There are <strong>no social features</strong></li>
+                    <li>There is <strong>no in-app messaging</strong></li>
+                    <li>Subscription purchases and external links are protected behind a <strong>parental gate</strong></li>
+                </ul>
+                <p>
+                    Read our full <a href="./privacy.html">Privacy Policy</a> for details.
+                </p>
+
+                <h2>Privacy &amp; Legal</h2>
+                <ul>
+                    <li><a href="./privacy.html">Privacy Policy</a></li>
+                    <li><a href="./terms.html">Terms of Service</a></li>
+                    <li>EULA: Loomi uses Apple's <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Standard End User License Agreement</a></li>
+                </ul>
+
+                <h2>Still need help?</h2>
+                <p>
+                    The fastest way to reach us is email. Tell us:
+                </p>
+                <ul>
+                    <li>What were you trying to do?</li>
+                    <li>What happened instead?</li>
+                    <li>Your iPhone model and iOS version (Settings → General → About)</li>
+                    <li>The version of Loomi (Settings → bottom of the page)</li>
+                </ul>
+                <p>
+                    Email: <a href="mailto:support@loomi.kids">support@loomi.kids</a>
+                </p>
+
+                <p class="closing-note">
+                    Loomi is built by three brothers ... for their own daughters first, and for every family that wants a calmer bedtime. Thank you for trusting us with this part of your day.
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="shared-footer"></footer>
+    </div>
+    <script src="./components/footer.js"></script>
+
+    <script>
+        // Detect app mode from query parameter
+        if (new URLSearchParams(window.location.search).has('app')) {
+            document.body.classList.add('app-mode');
+        }
+
+        // Create starfield
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const baseStarCount = 100;
+            const scaleFactor = (width * height) / (1920 * 1080);
+            const starCount = Math.floor(baseStarCount * Math.max(0.5, Math.min(1.5, scaleFactor)));
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star' + (Math.random() > 0.9 ? ' large' : '');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
+                star.style.setProperty('--delay', Math.random() * 5 + 's');
+                starfield.appendChild(star);
+            }
+        }
+        createStarfield();
+    </script>
+</body>
+</html>
