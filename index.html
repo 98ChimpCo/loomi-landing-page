@@ -222,6 +222,60 @@
             box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
         }
 
+        /* App Store badge (primary post-launch CTA).
+           Hover glow uses box-shadow on the anchor (the hover target itself).
+           No transform anywhere — anchor never moves, hit-area never shifts,
+           so :hover stays stable for as long as the cursor is over the badge.
+           box-shadow rendered around the anchor's border box reads as a soft
+           halo around the badge artwork. */
+        .app-store-badge {
+            display: inline-block;
+            line-height: 0;
+            border-radius: 8px;
+            transition: box-shadow 0.25s ease;
+        }
+
+        .app-store-badge img {
+            display: block;
+            height: 56px;
+            width: auto;
+        }
+
+        .app-store-badge:hover {
+            box-shadow: 0 10px 24px rgba(255, 255, 255, 0.18);
+        }
+
+        .app-store-badge--header img {
+            height: 40px;
+        }
+
+        /* Secondary "Or stay in touch" text link below the App Store badge */
+        .secondary-cta {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .secondary-cta-link {
+            background: none;
+            border: none;
+            padding: 6px 4px;
+            color: #a5b4fc;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: rgba(165, 180, 252, 0.4);
+            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        }
+
+        .secondary-cta-link:hover {
+            color: #ffffff;
+            text-decoration-color: #ffffff;
+        }
+
         /* Story Comparison Section */
         .story-comparison-section {
             max-width: 1200px;
@@ -1838,7 +1892,9 @@
 
     <div class="container">
         <header>
-            <button class="btn-primary" onclick="openModal()">Join Early Access</button>
+            <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" class="app-store-badge app-store-badge--header" aria-label="Download Loomi on the App Store">
+                <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
+            </a>
         </header>
 
         <!-- Hero Section -->
@@ -1864,10 +1920,12 @@
             </div>
 
             <div class="hero-cta">
-                <button class="btn-primary" onclick="openModal()">Join Early Access</button>
-                <!-- Commenting out this element for now
-                <button class="btn-secondary" onclick="scrollToProtocol()">Watch 45-sec Demo</button>
-                -->
+                <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" class="app-store-badge" aria-label="Download Loomi on the App Store">
+                    <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
+                </a>
+            </div>
+            <div class="secondary-cta">
+                <button type="button" class="secondary-cta-link" onclick="openModal()">Or get product updates</button>
             </div>
         </section>
 
@@ -2607,7 +2665,12 @@
         <section class="final-cta">
             <div class="cta-box">
                 <h2 class="cta-title"></h2>
-                <button class="btn-primary" onclick="openModal()">Join Early Access Today</button>
+                <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" class="app-store-badge" aria-label="Download Loomi on the App Store">
+                    <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
+                </a>
+                <div class="secondary-cta">
+                    <button type="button" class="secondary-cta-link" onclick="openModal()">Or get product updates</button>
+                </div>
             </div>
         </section>
 
@@ -2620,8 +2683,8 @@
     <div class="modal" id="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal()">&times;</span>
-            <h2>Join Early Access</h2>
-            <p style="color: #a5b4fc; margin-bottom: 20px;">Be among the first families to experience Loomi.</p>
+            <h2>Stay in touch</h2>
+            <p style="color: #a5b4fc; margin-bottom: 20px;">Get product updates and the occasional bedtime story drop.</p>
 
             <form onsubmit="handleSubmit(event)">
                 <!-- Honeypot field - bots will fill this, humans won't see it -->
@@ -2647,7 +2710,7 @@
                     <input type="text" name="languages" placeholder="e.g., English, Persian">
                 </div>
 
-                <button type="submit" class="submit-btn">Join the Waitlist</button>
+                <button type="submit" class="submit-btn">Subscribe</button>
             </form>
         </div>
     </div>
@@ -2671,7 +2734,8 @@
                         "Rooted in research",
                         "Loved at bedtime"
                     ],
-                    ctaButton: "Join Early Access"
+                    ctaButton: "Download on the App Store",
+                    secondaryCta: "Or get product updates"
                 },
 
                 // Story Comparison Section
@@ -2772,7 +2836,8 @@
                 // Final CTA Section
                 cta: {
                     title: "Ready to Try Loomi?",
-                    button: "Join Early Access"
+                    button: "Download on the App Store",
+                    secondaryCta: "Or get product updates"
                 },
 
                 // Footer
@@ -2783,7 +2848,7 @@
 
                 // Modal
                 modal: {
-                    title: "Join Early Access"
+                    title: "Stay in touch"
                 }
             },
 
@@ -3276,20 +3341,20 @@
 
                 // Track in Google Analytics
                 if (typeof gtag !== 'undefined') {
-                    gtag('event', 'waitlist_signup', {
+                    gtag('event', 'newsletter_signup', {
                         'event_category': 'engagement',
                         'event_label': data.language
                     });
                 }
 
-                alert('Thank you for joining! We\'ll be in touch soon. 🌙');
+                alert('Subscribed! We\'ll send you product updates and the occasional bedtime drop. 🌙');
                 event.target.reset();
                 closeModal();
 
             } catch (error) {
                 console.error('Error:', error);
                 // With mode: 'no-cors', data likely went through anyway
-                alert('Thank you for joining! We\'ll be in touch soon. 🌙');
+                alert('Subscribed! We\'ll send you product updates and the occasional bedtime drop. 🌙');
                 event.target.reset();
                 closeModal();
             } finally {
