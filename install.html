@@ -27,14 +27,14 @@
     </script>
 
     <!-- Auto-redirect to the App Store. Both the meta-refresh fallback and the JS
-         redirect are gated on the placeholder being substituted at deploy time, so
-         the page renders cleanly during the placeholder period. -->
+         redirect are gated on APP_STORE_URL being a real Apple Store URL, so the
+         page renders cleanly during any future placeholder period. -->
     <script>
         (function () {
-            var APP_STORE_URL = "__APP_STORE_URL__";
-            var placeholderActive = APP_STORE_URL.indexOf("__APP_STORE_URL__") !== -1;
-            if (placeholderActive) {
-                return; // Don't redirect to a broken URL while the PR is in prep
+            var APP_STORE_URL = "https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754";
+            var isRealAppStoreUrl = /^https:\/\/apps\.apple\.com\//.test(APP_STORE_URL);
+            if (!isRealAppStoreUrl) {
+                return; // Placeholder still in place — don't redirect to a broken URL
             }
             // Inject the meta-refresh fallback for environments without JS execution.
             var m = document.createElement("meta");
@@ -140,11 +140,11 @@
         <img class="logo" src="./apple-touch-icon.png" alt="Loomi">
         <h1>Loomi is on the App Store</h1>
         <p>Taking you there now...</p>
-        <a class="app-store-link" href="__APP_STORE_URL__" aria-label="Download Loomi on the App Store">
+        <a class="app-store-link" href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" aria-label="Download Loomi on the App Store">
             <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
         </a>
         <p class="redirect-note">
-            Not redirecting? <a href="__APP_STORE_URL__">Tap here to install Loomi.</a>
+            Not redirecting? <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754">Tap here to install Loomi.</a>
         </p>
     </main>
 

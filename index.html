@@ -222,11 +222,17 @@
             box-shadow: 0 15px 50px rgba(102, 126, 234, 0.5);
         }
 
-        /* App Store badge (primary post-launch CTA) */
+        /* App Store badge (primary post-launch CTA).
+           Hover glow uses box-shadow on the anchor (the hover target itself).
+           No transform anywhere — anchor never moves, hit-area never shifts,
+           so :hover stays stable for as long as the cursor is over the badge.
+           box-shadow rendered around the anchor's border box reads as a soft
+           halo around the badge artwork. */
         .app-store-badge {
             display: inline-block;
-            transition: transform 0.25s ease, filter 0.25s ease;
             line-height: 0;
+            border-radius: 8px;
+            transition: box-shadow 0.25s ease;
         }
 
         .app-store-badge img {
@@ -236,8 +242,7 @@
         }
 
         .app-store-badge:hover {
-            transform: translateY(-2px);
-            filter: drop-shadow(0 10px 24px rgba(255, 255, 255, 0.18));
+            box-shadow: 0 10px 24px rgba(255, 255, 255, 0.18);
         }
 
         .app-store-badge--header img {
@@ -1887,7 +1892,7 @@
 
     <div class="container">
         <header>
-            <a href="__APP_STORE_URL__" class="app-store-badge app-store-badge--header" aria-label="Download Loomi on the App Store">
+            <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" class="app-store-badge app-store-badge--header" aria-label="Download Loomi on the App Store">
                 <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
             </a>
         </header>
@@ -1914,7 +1919,7 @@
             </div>
 
             <div class="hero-cta">
-                <a href="__APP_STORE_URL__" class="app-store-badge" aria-label="Download Loomi on the App Store">
+                <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" class="app-store-badge" aria-label="Download Loomi on the App Store">
                     <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
                 </a>
             </div>
@@ -2659,7 +2664,7 @@
         <section class="final-cta">
             <div class="cta-box">
                 <h2 class="cta-title"></h2>
-                <a href="__APP_STORE_URL__" class="app-store-badge" aria-label="Download Loomi on the App Store">
+                <a href="https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754" class="app-store-badge" aria-label="Download Loomi on the App Store">
                     <img src="./assets/app-store-badge.svg" alt="Download on the App Store">
                 </a>
                 <div class="secondary-cta">

@@ -7,8 +7,8 @@
 // or the Apps Script editor for live email behaviour to change.
 // ============================================
 
-// Replace __APP_STORE_URL__ with the live App Store URL at launch.
-var APP_STORE_LINK = "__APP_STORE_URL__";
+// Live App Store URL — used in the welcome email's "Install Loomi" CTA.
+var APP_STORE_LINK = "https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754";
 
 // Handle form submissions from landing page
 function doPost(e) {
@@ -99,7 +99,7 @@ function sendUserConfirmation(parentName, email) {
     <body style="margin: 0; padding: 0; background-color: #0a0e1f; font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0a0e1f;">
         <tr>
-          <td align="center" style="padding: 40px 20px; background: linear-gradient(to bottom, #0a0e1f 0%, #141b2d 50%, #1a2332 100%); background-color: #0a0e1f;">
+          <td align="center" style="padding: 40px 20px; background: url('https://www.loomi.kids/assets/starfield-tile-transparent.png') repeat, linear-gradient(to bottom, #0a0e1f 0%, #141b2d 50%, #1a2332 100%); background-color: #0a0e1f;">
             <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; background: rgba(10, 14, 31, 0.65); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08);">
 
               <!-- Logo Header -->
