@@ -6,7 +6,7 @@ function renderFooter() {
     if (!footer) return;
 
     footer.innerHTML = `
-        <p><img src="./favicon-32x32.png" alt="Loomi"> Loomi: The art & science of calm & confident kids</p>
+        <p><img src="./favicon-32x32.png" alt="Loomi"> Bedtime stories that build children's confidence from the inside out.</p>
         <p style="margin-top: 10px; font-size: 14px;">&copy; 2025 Loomi. Built with ❤️ by 3 brothers and dads for thoughtful parents seeking peaceful bedtimes for their children.</p>
         <div class="footer-links">
             <a href="./privacy.html">Privacy Policy</a>
