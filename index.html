@@ -256,6 +256,8 @@
             justify-content: center;
         }
 
+        /* "Or get product updates" — hover behaviour matches the footer links:
+           single-property colour transition to amber, no underline involvement. */
         .secondary-cta-link {
             background: none;
             border: none;
@@ -265,15 +267,12 @@
             font-size: 15px;
             font-weight: 400;
             cursor: pointer;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            text-decoration-color: rgba(165, 180, 252, 0.4);
-            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .secondary-cta-link:hover {
-            color: #ffffff;
-            text-decoration-color: #ffffff;
+            color: #f4a460;
         }
 
         /* Story Comparison Section */
