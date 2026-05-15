@@ -16,6 +16,12 @@ var APP_STORE_REVIEW_LINK = "https://apps.apple.com/app/loomi-sleep-stories-for-
 // Name of the spreadsheet tab that drives the GA launch campaign.
 var GA_SHEET_NAME = "GA Campaign";
 
+// Crescent-moon emoji 🌙, built from its code point. A literal emoji
+// character in the source can get mangled in transit (clasp / GAS file
+// handling) and arrive in the subject line as "������"; constructing it
+// from the code point keeps the source pure-ASCII and the emoji intact.
+var MOON = String.fromCodePoint(0x1F319);
+
 // Handle form submissions from landing page
 function doPost(e) {
   var output = ContentService.createTextOutput();
@@ -302,7 +308,7 @@ function firstNameOf(name) {
 // ============================================
 function sendGAAnnouncement(name, email, offerCode) {
   var firstName = firstNameOf(name);
-  var subject = "A gift for one of Loomi's first families 🌙";
+  var subject = "A thank-you gift for our first families " + MOON;
 
   var inner = `
     <tr>
@@ -405,7 +411,7 @@ function sendGAAnnouncement(name, email, offerCode) {
 // ============================================
 function sendReviewNudge(name, email) {
   var firstName = firstNameOf(name);
-  var subject = "One last little favour 🌙";
+  var subject = "A quick favour, if you have a moment " + MOON;
 
   var inner = `
     <tr>
@@ -587,7 +593,7 @@ function sendReviewNudgeToSelectedRows() {
 // Preview: sends both campaign emails to the address below so the team
 // can eyeball them before any real send. Uses a sample offer code.
 // Change GA_PREVIEW_EMAIL to whoever should receive the preview.
-var GA_PREVIEW_EMAIL = "shahinz@mac.com";
+var GA_PREVIEW_EMAIL = "hello@loomi.kids";
 function testGACampaignEmails() {
   sendGAAnnouncement("Test Parent", GA_PREVIEW_EMAIL, "LOOMI-FAMILY-2026");
   Utilities.sleep(800);
