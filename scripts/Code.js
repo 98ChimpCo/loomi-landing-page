@@ -303,12 +303,24 @@ function firstNameOf(name) {
   return n ? n.split(/\s+/)[0] : 'there';
 }
 
+// Email clients need a non-ASCII subject wrapped as an RFC 2047 "encoded-word".
+// GmailApp does not reliably encode emoji in the subject header itself — an
+// astral-plane character like 🌙 arrives mangled as "������" — so we pre-encode
+// the subject as =?UTF-8?B?<base64 of correct UTF-8 bytes>?= and let the
+// receiving client decode it. Utilities.newBlob produces correct UTF-8 (4 bytes
+// for the moon), unlike GmailApp's internal subject encoder. The HTML body is
+// unaffected; this is only for the Subject header.
+function mimeEncodeSubject(subject) {
+  var utf8Bytes = Utilities.newBlob(subject).getBytes();
+  return "=?UTF-8?B?" + Utilities.base64Encode(utf8Bytes) + "?=";
+}
+
 // ============================================
 // EMAIL 1: GA announcement + one-year offer code
 // ============================================
 function sendGAAnnouncement(name, email, offerCode) {
   var firstName = firstNameOf(name);
-  var subject = "A thank-you gift for our first families " + MOON;
+  var subject = mimeEncodeSubject("A thank-you gift for our first families " + MOON);
 
   var inner = `
     <tr>
@@ -411,7 +423,7 @@ function sendGAAnnouncement(name, email, offerCode) {
 // ============================================
 function sendReviewNudge(name, email) {
   var firstName = firstNameOf(name);
-  var subject = "A quick favour, if you have a moment " + MOON;
+  var subject = mimeEncodeSubject("A quick favour, if you have a moment " + MOON);
 
   var inner = `
     <tr>
