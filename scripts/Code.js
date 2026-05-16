@@ -117,7 +117,7 @@ function sendUserConfirmation(parentName, email) {
               <!-- Logo Header -->
               <tr>
                 <td align="center" style="padding: 40px 40px 30px;">
-                  <img src="https://www.loomi.kids/assets/loomi-logo-header.png" alt="Loomi" width="120" style="display: block;">
+                  <img src="https://www.loomi.kids/assets/loomi-logo-header.png?v=2" alt="Loomi" width="120" style="display: block;">
                 </td>
               </tr>
 
@@ -170,7 +170,7 @@ function sendUserConfirmation(parentName, email) {
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     <tr>
                       <td align="center" style="padding-bottom: 12px;">
-                        <img src="https://www.loomi.kids/apple-touch-icon.png" alt="Loomi" width="24" height="24" style="display: inline-block; vertical-align: middle; border-radius: 6px;">
+                        <img src="https://www.loomi.kids/apple-touch-icon.png?v=2" alt="Loomi" width="24" height="24" style="display: inline-block; vertical-align: middle; border-radius: 6px;">
                         <span style="color: #8b9dc3; font-size: 13px; margin-left: 8px; vertical-align: middle;">Loomi: The art &amp; science of calm &amp; confident kids</span>
                       </td>
                     </tr>
@@ -256,7 +256,7 @@ function loomiEmailShell(innerHtml) {
               <!-- Logo Header -->
               <tr>
                 <td align="center" style="padding: 40px 40px 30px;">
-                  <img src="https://www.loomi.kids/assets/loomi-logo-header.png" alt="Loomi" width="120" style="display: block;">
+                  <img src="https://www.loomi.kids/assets/loomi-logo-header.png?v=2" alt="Loomi" width="120" style="display: block;">
                 </td>
               </tr>
 
@@ -268,7 +268,7 @@ function loomiEmailShell(innerHtml) {
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
                     <tr>
                       <td align="center" style="padding-bottom: 12px;">
-                        <img src="https://www.loomi.kids/apple-touch-icon.png" alt="Loomi" width="24" height="24" style="display: inline-block; vertical-align: middle; border-radius: 6px;">
+                        <img src="https://www.loomi.kids/apple-touch-icon.png?v=2" alt="Loomi" width="24" height="24" style="display: inline-block; vertical-align: middle; border-radius: 6px;">
                         <span style="color: #8b9dc3; font-size: 13px; margin-left: 8px; vertical-align: middle;">Bedtime stories that build children's confidence from the inside out.</span>
                       </td>
                     </tr>
