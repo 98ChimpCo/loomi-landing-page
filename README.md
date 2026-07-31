@@ -1,2 +1,113 @@
-# loomi-landing-page
+# Loomi Landing Page
 
+Marketing site for [Loomi](https://apps.apple.com/app/loomi-sleep-stories-for-kids/id6757821754), the bedtime story app for children aged 0–6.
+
+Live at **[www.loomi.kids](https://www.loomi.kids)**.
+
+## Stack
+
+- Static HTML / CSS / JS — no build step, no framework
+- **GitHub Pages** deploys `main` automatically to `www.loomi.kids` (custom domain via `CNAME`)
+- **Google Apps Script** (in `scripts/Code.js`) handles the "Stay in touch" newsletter form and sends welcome + launch-campaign emails from `hello@loomi.kids`
+- Assets (mascot, wordmark, video demo, App Store badge) live in `assets/`
+
+## Local development
+
+```bash
+python3 -m http.server 8081
+# open http://localhost:8081
+```
+
+That's it. Any edit to an `.html` file shows on next refresh.
+
+## Deploy
+
+Merge to `main`. GitHub Pages redeploys `loomi.kids` in 1–2 minutes.
+
+For non-critical changes: hard-refresh (Cmd+Shift+R) is often needed because the site's `<script>` and `<img>` tags don't carry cache-busting query strings by default. See [Cache-busting](#cache-busting) below.
+
+## Repo layout
+
+```
+├── index.html              # Main landing page (hero, CTAs, comparison, formula, voices, research)
+├── install.html            # Auto-redirect to App Store (catches old TestFlight install links)
+├── privacy.html            # Privacy policy
+├── terms.html              # Terms of service
+├── support.html            # Support page (App Review 1.5 requirement)
+├── components/footer.js    # Shared footer (privacy/terms/support links + brand line)
+├── scripts/
+│   ├── Code.js             # Google Apps Script — form handler + welcome/campaign emails
+│   ├── appsscript.json     # Apps Script manifest
+│   └── .clasp.json         # (gitignored) clasp script ID
+├── assets/                 # Mascot, wordmark, videos, App Store badge, starfield tile, voice portraits
+├── favicon.ico, favicon-*.png, apple-touch-icon.png, android-chrome-*.png
+├── site.webmanifest        # PWA manifest (Android home-screen icons)
+└── CNAME                   # www.loomi.kids
+```
+
+## Apps Script sync
+
+The web form on `index.html` POSTs to a deployed Google Apps Script web app. `scripts/Code.js` is the source of truth; the live script is a separate runtime.
+
+**Push local edits to the live script:**
+
+```bash
+cd scripts
+clasp push --force
+```
+
+**Gotcha — web-app deployment is version-pinned.**
+
+Menu-triggered functions (welcome email, launch-campaign senders) run against `HEAD` and pick up `clasp push` immediately.
+
+The form endpoint (`doPost`) is served by a **pinned deployment** (`AKfycby...` in the URL that `index.html` fetches). `clasp push` alone does **not** update it. To update the live form behaviour:
+
+```bash
+cd scripts
+clasp push --force
+clasp create-version "what changed"                          # note the version number, e.g. 12
+clasp redeploy -V 12 -d "what changed" AKfycbyG5r-zIpHmwh17xCEQR-a9tab8YPdKBfki0DXzTnbjBjTiMog3k2v5rLgnX-ukg9MXSQ
+```
+
+The deployment ID above is the current public form endpoint. Get the list with `clasp list-deployments`.
+
+**First-time setup** on a new machine:
+
+```bash
+npm install -g @google/clasp
+clasp login   # sign in as the account that owns the script
+```
+
+Login expires periodically — re-run `clasp login` when `clasp push` returns `invalid_grant`.
+
+## Cache-busting
+
+Changed image URLs use a `?v=N` query so Gmail's image proxy (and email-client image caches) refetch. Current version is `?v=2` — bump to `?v=3` when the mascot or apple-touch-icon changes again.
+
+Applied in:
+- `scripts/Code.js` — email `<img>` tags for `loomi-logo-header.png` and `apple-touch-icon.png`
+- `index.html` — hero `<img>` for `loomi-logo-header.png`
+
+Not versioned (self-heals via browser cache within the 10-minute `max-age`):
+- Favicon `<link>` tags in HTML head
+- Static assets not referenced by email
+
+## Regenerating the mascot icon set
+
+When the mascot art changes, drop the new square PNG at `assets/loomi-logo.png` (750×750 recommended) and run:
+
+```bash
+SRC=assets/loomi-logo.png
+magick "$SRC" -strip -filter Lanczos -resize 16x16   favicon-16x16.png
+magick "$SRC" -strip -filter Lanczos -resize 32x32   favicon-32x32.png
+magick "$SRC" -strip -filter Lanczos -resize 180x180 apple-touch-icon.png
+magick "$SRC" -strip -filter Lanczos -resize 192x192 android-chrome-192x192.png
+magick "$SRC" -strip -filter Lanczos -resize 512x512 android-chrome-512x512.png
+magick "$SRC" -strip -filter Lanczos -define icon:auto-resize=16,32,48 favicon.ico
+```
+
+Requires ImageMagick 7 (`brew install imagemagick`). Filenames are unchanged so no HTML/webmanifest edits are needed. Bump the cache-busting version if the hero logo also changed.
+
+## Workflow
+
+Every change goes through a feature branch → PR → merge (per `~/.claude/CLAUDE.md`). Branch names: `shahin/<short-description>`. GitHub Pages auto-deploys after merge.
