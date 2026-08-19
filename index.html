@@ -1980,6 +1980,26 @@
             }
         }
 
+        /* App mode ... index.html is what both apps load as Settings -> About
+           Loomi (LoomiLinks.ABOUT_URL / SettingsView.swift:459). Inside the app
+           the site chrome is redundant and the store buttons are worse than
+           redundant: a parent who already has Loomi does not need a button back
+           to the store, and on Android an App Store badge points at the wrong
+           platform. A reviewer walking the Settings menu sees them too.
+
+           .store-badges / .play-badge arrive with the dual-platform CTA work;
+           naming them now is harmless and correct once that lands. */
+        body.app-mode header,
+        body.app-mode footer,
+        body.app-mode nav,
+        body.app-mode .store-badges,
+        body.app-mode .app-store-badge,
+        body.app-mode .play-badge,
+        body.app-mode .hero-cta,
+        body.app-mode .secondary-cta,
+        body.app-mode .final-cta {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -3798,5 +3818,12 @@
         </div>
     </div>
 
+    <script>
+        // Detect app mode from the query parameter, matching privacy.html,
+        // terms.html and support.html. Both apps append ?app=true.
+        if (new URLSearchParams(window.location.search).has('app')) {
+            document.body.classList.add('app-mode');
+        }
+    </script>
 </body>
 </html>
