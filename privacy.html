@@ -358,7 +358,7 @@
 
         <main class="page-content">
             <h1 class="page-title">Privacy Policy</h1>
-            <p class="last-updated"><strong>Last Updated:</strong> March 2026</p>
+            <p class="last-updated"><strong>Last Updated:</strong> August 2026</p>
 
             <div class="content-card">
                 <p class="intro-text">
@@ -367,7 +367,7 @@
 
                 <h2>Our Commitment to Children's Privacy</h2>
                 <p>
-                    Loomi is designed for children ages 0-6 and complies with the Children's Online Privacy Protection Act (COPPA) and other applicable privacy laws. <span class="highlight">We do not collect, use, or share personal information from children.</span>
+                    Loomi is designed for children ages 0-6 and complies with the Children's Online Privacy Protection Act (COPPA) and other applicable privacy laws. <span class="highlight">Loomi never asks a child for information directly, and we never sell or share it for marketing.</span> The limited information we hold about a child ... a first name, an age range, and what they have listened to in the app ... is entered by you, the parent, and stored in your account.
                 </p>
 
                 <h2>Information We Collect</h2>
@@ -375,9 +375,10 @@
                 <h3>Information You Provide</h3>
                 <p>When you use Loomi, you may provide:</p>
                 <ul>
-                    <li><strong>Child's first name</strong> - Used only for personalization within the app (e.g., "Stories for Emma"). This is stored locally on your device and is never transmitted to our servers.</li>
-                    <li><strong>Child's age range</strong> - Used to filter age-appropriate content. Stored locally on your device only.</li>
-                    <li><strong>Apple ID authentication</strong> - If you sign in with Apple, we receive only the minimum information necessary to create your account (a unique identifier and, optionally, your email address if you choose to share it).</li>
+                    <li><strong>Child's first name</strong> - Used to personalise the app (for example, "Stories for Emma"). It is saved to your Loomi account in our Firebase database, so the profile is still there when you reinstall the app or sign in on another device. Security rules mean only your signed-in account can read or change it. We never show it to anyone else and never use it in advertising.</li>
+                    <li><strong>Child's age range</strong> - Used to show age-appropriate stories. It is saved to your Loomi account alongside the profile. The age band on its own, never your child's name, is also included in the usage statistics we send to Firebase Analytics, so we can see which stories suit which ages.</li>
+                    <li><strong>Listening activity for each profile</strong> - Which stories were started and finished, where playback was paused so it can resume, which narrator, melody and sleep-timer setting were last used, and which stories were marked as favourites. This is kept with your account so a story picks up where it left off on any of your devices. It contains no recordings and nothing beyond what happens inside Loomi.</li>
+                    <li><strong>Signing in</strong> - You can sign in with Apple or with Google. From Apple we receive a unique identifier, your name if you choose to share it, and your email address unless you use Apple's Hide My Email option. From Google we receive your name, your Google account email address, and a link to your profile picture. This sits on your Loomi account record so we can recognise you when you sign back in. It is not shared with anyone or used for marketing.</li>
                 </ul>
 
                 <h3>Information We Do NOT Collect</h3>
@@ -385,7 +386,6 @@
                     <li>We do <strong>not</strong> collect children's personal information</li>
                     <li>We do <strong>not</strong> collect location data</li>
                     <li>We do <strong>not</strong> collect photos, videos, or voice recordings</li>
-                    <li>We do <strong>not</strong> use analytics that track individual children</li>
                     <li>We do <strong>not</strong> use cookies or similar tracking technologies</li>
                 </ul>
 
@@ -399,35 +399,37 @@
 
                 <h2>Data Storage</h2>
                 <ul>
-                    <li><strong>Local Storage:</strong> Child profile information (name and age) is stored exclusively on your device</li>
-                    <li><strong>No Cloud Sync of Child Data:</strong> We do not upload or sync children's information to any servers</li>
+                    <li><strong>Cloud storage:</strong> Your child's profile ... first name, age range and listening activity ... is stored in your Loomi account on Google Firebase, protected by rules that let only your signed-in account read or change it</li>
+                    <li><strong>Syncing across your devices:</strong> Because the profile belongs to your account rather than to one handset, it appears on every device you sign in to and survives reinstalling the app</li>
                     <li><strong>Audio Content:</strong> Story audio files may be downloaded to your device for offline playback</li>
                 </ul>
 
                 <h2>Third-Party Services</h2>
                 <p>Loomi uses the following third-party services:</p>
                 <ul>
-                    <li><strong>Apple Sign-In</strong> — For secure authentication</li>
-                    <li><strong>Apple App Store</strong> — For processing purchases and subscriptions</li>
-                    <li><strong>Firebase Analytics</strong> — For anonymised, aggregate usage analytics at the parent-account level only. Firebase Analytics is <strong>never</strong> used to track children or collect children's personal information</li>
+                    <li><strong>Sign in with Apple</strong> and <strong>Sign in with Google</strong> ... so you can create an account without a password</li>
+                    <li><strong>Apple App Store</strong> (iPhone) and <strong>Google Play</strong> (Android) ... to process subscriptions. They handle the payment; we never see your card details</li>
+                    <li><strong>Google Firebase</strong> ... Authentication, Firestore, Cloud Storage, Cloud Messaging, Remote Config and Analytics. This is where your account, your children's profiles and their listening activity are stored, and where our usage statistics go. Some analytics events include a random profile code and the age range of the profile in use, so we can tell whether a story works better for a three-year-old than a five-year-old. Your child's name is never sent</li>
+                    <li><strong>Firebase Crashlytics</strong> (Google) ... automatic crash reports when the app stops unexpectedly. These include the device model, operating-system version, a technical crash trace and a random installation code. They contain no names and no profile information</li>
+                    <li><strong>Argus</strong> ... our own feature-flag service, which tells the app which features to turn on. It receives your account identifier, or a random per-install code if you are signed out, so a feature can be switched on consistently for you</li>
                 </ul>
-                <p>We do not use third-party advertising, analytics that track children, or social media integrations.</p>
+                <p>We do not use third-party advertising or social media integrations, and we do not track anyone across other apps or websites. None of this data is sold, or shared for marketing.</p>
 
                 <h2>Subscription Information</h2>
 
                 <h3>Subscription Status</h3>
                 <p>
-                    We store your subscription entitlement status (active, expired, or in a free trial) locally on your device to determine which content you can access. This status is checked through Apple's StoreKit framework and is <strong>not</strong> transmitted to our servers.
+                    We keep your subscription status ... active, expired, or in a free trial ... on your device to decide which stories you can play. It comes from the App Store on iPhone and from Google Play on Android, and we never receive your payment details. A simple yes or no of whether an account is subscribed is included in some usage events, such as tapping a premium story, so we can see how the free and paid experience compare.
                 </p>
 
                 <h3>Payment Processing</h3>
                 <p>
-                    All payment processing is handled entirely by Apple through the App Store. Loomi does <strong>not</strong> collect, store, or have access to credit card numbers, billing addresses, or any other payment details.
+                    Payments are handled entirely by the app store you bought through ... Apple's App Store on iPhone, or Google Play on Android. Loomi does <strong>not</strong> collect, store, or have access to credit card numbers, billing addresses, or any other payment details.
                 </p>
 
                 <h3>Subscription Analytics</h3>
                 <p>
-                    To improve the app experience, we collect anonymised subscription-related usage events. These events help us understand how parents interact with our subscription offering and are <strong>never</strong> linked to children's personal information. The events we collect include:
+                    To improve the app experience, we collect subscription-related usage events. They carry no names, email addresses or payment details. Like our other usage statistics they are recorded against the app installation, which also carries the age range of the profile in use and how many profiles are on the account. The events we collect include:
                 </p>
                 <ul>
                     <li>When a parent views the subscription options screen</li>
@@ -437,7 +439,7 @@
                     <li>When a subscription purchase fails (error type only ... no personal data)</li>
                 </ul>
                 <p>
-                    These events are processed through Firebase Analytics and contain no personally identifiable information. They are used solely to improve the subscription experience for families.
+                    These events are processed through Firebase Analytics and are used solely to improve the subscription experience for families.
                 </p>
 
                 <h2>Data Sharing</h2>
@@ -462,13 +464,14 @@
                 <h2>Data Retention</h2>
                 <ul>
                     <li>Account information is retained while your account is active</li>
-                    <li>You may delete your account at any time through the app settings or by contacting us</li>
-                    <li>Upon account deletion, all associated data is permanently removed</li>
+                    <li>You may delete your account at any time from <strong>Settings &rarr; Account &rarr; Delete account</strong> in the app, on either iPhone or Android, or by contacting us</li>
+                    <li>Upon account deletion we permanently remove your account record, your children's profiles, their listening activity, your settings, any answers you gave to in-app surveys, and the story audio downloaded on that device</li>
+                    <li>Deleting your Loomi account does not cancel an active subscription ... cancel that separately in the App Store or Google Play</li>
                 </ul>
 
                 <h2>Security</h2>
                 <p>
-                    We implement industry-standard security measures to protect any information we handle. Child profile data stored locally on your device is protected by your device's built-in security features.
+                    We use industry-standard security to protect the information we hold. Your account, your children's profiles and their listening activity are stored on Google Firebase, encrypted in transit and at rest, behind rules that allow only your own signed-in account to read or change them. Story audio downloaded for offline playback stays on your device and is protected by your device's built-in security.
                 </p>
 
                 <h2>Changes to This Policy</h2>
@@ -480,7 +483,7 @@
                 <p>If you have questions about this Privacy Policy or our privacy practices, please contact us:</p>
                 <p>
                     <strong>Email:</strong> <a href="mailto:privacy@loomi.kids">privacy@loomi.kids</a><br>
-                    <strong>Website:</strong> <a href="https://loomi.kids">https://loomi.kids</a>
+                    <strong>Website:</strong> <a href="https://www.loomi.kids">https://www.loomi.kids</a>
                 </p>
 
                 <p class="closing-note">
