@@ -760,6 +760,46 @@
             z-index: 2;
         }
 
+        /* Voice sample playback (scaffold).
+           Any .voice-card carrying a data-sample="/path/to/clip.mp3"
+           attribute gets a circular play button pinned to the portrait.
+           Clicking plays that clip; the JS enforces one-at-a-time playback.
+           Cards without the attribute render exactly as before. */
+        .voice-play-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(10, 14, 31, 0.85);
+            border: 1px solid rgba(244, 164, 96, 0.55);
+            color: #f4a460;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+            z-index: 3;
+        }
+        .voice-play-btn:hover {
+            background: rgba(20, 27, 45, 0.95);
+            box-shadow: 0 8px 22px rgba(244, 164, 96, 0.28);
+        }
+        .voice-play-btn:active { transform: translateY(1px); }
+        .voice-play-btn:focus-visible {
+            outline: 2px solid #f4a460;
+            outline-offset: 2px;
+        }
+        .voice-play-btn svg { width: 18px; height: 18px; display: block; }
+        .voice-play-btn .icon-pause { display: none; }
+        .voice-play-btn[aria-pressed="true"] .icon-play  { display: none; }
+        .voice-play-btn[aria-pressed="true"] .icon-pause { display: block; }
+        .voice-card.coming-soon .voice-play-btn { display: none; }
+        .voice-card { position: relative; }
+
         .voice-card.coming-soon .voice-portrait {
             opacity: 0.65;
         }
@@ -3684,6 +3724,64 @@
                   });
               }
           }
+
+    // ============================================================
+    // Voice sample playback
+    // Wires a play/pause button onto every .voice-card that carries a
+    // data-sample="/path/to/clip.mp3" attribute. Enforces one-at-a-time
+    // playback, cleans up on end, keeps aria-pressed in sync. Cards
+    // without the attribute are left alone.
+    //
+    // To enable a sample: drop the file into assets/voices/samples/
+    // and add data-sample="./assets/voices/samples/<voice>.mp3" to
+    // that card's <div class="voice-card">.
+    // ============================================================
+    (function wireVoiceSamples() {
+        var cards = document.querySelectorAll('.voice-card[data-sample]');
+        if (!cards.length) return;
+        var current = null; // { btn, audio }
+        function stop(entry) {
+            if (!entry) return;
+            entry.audio.pause();
+            entry.audio.currentTime = 0;
+            entry.btn.setAttribute('aria-pressed', 'false');
+        }
+        cards.forEach(function (card) {
+            if (card.classList.contains('coming-soon')) return;
+            var src = card.getAttribute('data-sample');
+            var name = (card.querySelector('.voice-name') || {}).textContent || 'this voice';
+            var audio = new Audio();
+            audio.preload = 'none';
+            audio.src = src;
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'voice-play-btn';
+            btn.setAttribute('aria-label', 'Play a sample of ' + name);
+            btn.setAttribute('aria-pressed', 'false');
+            btn.innerHTML =
+                '<svg class="icon-play"  viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>' +
+                '<svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+            card.appendChild(btn);
+            btn.addEventListener('click', function () {
+                if (current && current.btn === btn) {
+                    stop(current);
+                    current = null;
+                    return;
+                }
+                stop(current);
+                audio.play().then(function () {
+                    btn.setAttribute('aria-pressed', 'true');
+                    current = { btn: btn, audio: audio };
+                }).catch(function () {
+                    btn.setAttribute('aria-pressed', 'false');
+                });
+            });
+            audio.addEventListener('ended', function () {
+                btn.setAttribute('aria-pressed', 'false');
+                if (current && current.btn === btn) current = null;
+            });
+        });
+    })();
 
     </script>
 
